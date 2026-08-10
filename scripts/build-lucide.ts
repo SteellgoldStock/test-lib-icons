@@ -10,6 +10,12 @@ const execFileAsync = promisify(execFile);
 const args = process.argv.slice(2);
 
 const pixelMode = args.includes("--pixel");
+const inPlace = args.includes("--in-place");
+const checkMode = args.includes("--check");
+const fixMode = args.includes("--fix");
+
+const pixelizationEnabled =
+  pixelMode || (checkMode && fixMode);
 
 const readOption = (
   name: string,
@@ -29,6 +35,62 @@ const readOption = (
   }
 
   return undefined;
+};
+
+const normalizeFileName = (
+  value: string,
+): string => {
+  const trimmed = value.trim();
+
+  if (
+    trimmed.includes("/") ||
+    trimmed.includes("\\") ||
+    trimmed.includes("..")
+  ) {
+    throw new Error(
+      `Invalid SVG filename: ${trimmed}. Use plain filenames only.`,
+    );
+  }
+
+  const hasSvgExtension = /\.svg$/i.test(
+    trimmed,
+  );
+
+  return hasSvgExtension
+    ? trimmed
+    : `${trimmed}.svg`;
+};
+
+const parseFilesList = (
+  value: string,
+): string[] => {
+  return value
+    .split(",")
+    .map((name) =>
+      normalizeFileName(name),
+    )
+    .map((name) => name.trim())
+    .filter((name) => name.length > 0);
+};
+
+const uniqueByLowerCase = (
+  values: string[],
+): string[] => {
+  const seen = new Set<string>();
+  const unique: string[] = [];
+
+  for (const value of values) {
+    const normalized = value.toLowerCase();
+
+    if (seen.has(normalized)) {
+      continue;
+    }
+
+    seen.add(normalized);
+    unique.push(value);
+  }
+
+  return unique;
 };
 
 const limitValue = readOption("--limit");
@@ -64,7 +126,7 @@ if (
   process.exit(1);
 }
 
-if (!pixelMode && gridValue) {
+if (!pixelizationEnabled && gridValue) {
   console.warn(
     'Ignoring "--grid" because "--pixel" is not enabled.',
   );
@@ -76,7 +138,7 @@ const rasterThresholdValue = readOption(
 
 const rasterThreshold = rasterThresholdValue
   ? Number(rasterThresholdValue)
-  : 0.16;
+  : 0.2;
 
 if (
   !Number.isFinite(rasterThreshold) ||
@@ -89,7 +151,7 @@ if (
   process.exit(1);
 }
 
-if (!pixelMode && rasterThresholdValue) {
+if (!pixelizationEnabled && rasterThresholdValue) {
   console.warn(
     'Ignoring "--raster-threshold" because "--pixel" is not enabled.',
   );
@@ -101,7 +163,7 @@ const blockThresholdValue = readOption(
 
 const blockThreshold = blockThresholdValue
   ? Number(blockThresholdValue)
-  : 0.25;
+  : 0.3;
 
 if (
   !Number.isFinite(blockThreshold) ||
@@ -114,7 +176,7 @@ if (
   process.exit(1);
 }
 
-if (!pixelMode && blockThresholdValue) {
+if (!pixelizationEnabled && blockThresholdValue) {
   console.warn(
     'Ignoring "--block-threshold" because "--pixel" is not enabled.',
   );
@@ -123,7 +185,7 @@ if (!pixelMode && blockThresholdValue) {
 const blockValue = readOption("--block");
 const block = blockValue
   ? Number(blockValue)
-  : 2;
+  : 1;
 
 if (
   !Number.isInteger(block) ||
@@ -136,7 +198,7 @@ if (
   process.exit(1);
 }
 
-if (!pixelMode && blockValue) {
+if (!pixelizationEnabled && blockValue) {
   console.warn(
     'Ignoring "--block" because "--pixel" is not enabled.',
   );
@@ -146,33 +208,72 @@ const lucidePackage = "lucide-static";
 const resvgPackage = "@resvg/resvg-js";
 const pngPackage = "pngjs";
 
-const sourceDir = path.join(
-  root,
-  "node_modules",
-  lucidePackage,
-  "icons",
-);
+const userSourceDir = readOption("--path");
+const requestedFile = readOption("--file");
+const requestedFiles = readOption("--files");
 
-const targetDir = path.join(
+const sourceDir = userSourceDir
+  ? path.resolve(process.cwd(), userSourceDir)
+  : path.join(
+      root,
+      "node_modules",
+      lucidePackage,
+      "icons",
+    );
+
+const targetDir = userSourceDir && !inPlace
+  ? path.join(
+      path.dirname(sourceDir),
+      `${path.basename(sourceDir)}-pixelized`,
+    )
+  : sourceDir;
+
+const defaultOutputDir = path.join(
   root,
   "icons",
   "lucide",
 );
 
-const cleanTargetDirectory = async (): Promise<void> => {
+const outputDir = userSourceDir
+  ? targetDir
+  : defaultOutputDir;
+
+const resolvedSourceDir = path.resolve(sourceDir);
+const resolvedOutputDir = path.resolve(outputDir);
+
+if (!inPlace && resolvedOutputDir === resolvedSourceDir) {
+  throw new Error(
+    "Output directory resolves to the source directory. Use --in-place to overwrite source SVG files.",
+  );
+}
+
+const safeDirectoryCheck = (
+  directory: string,
+): void => {
   const resolvedRoot = path.resolve(root);
-  const resolvedTarget = path.resolve(targetDir);
+  const resolvedDirectory = path.resolve(directory);
+  const resolvedSource = path.resolve(sourceDir);
 
   if (
-    resolvedTarget === resolvedRoot ||
-    !resolvedTarget.startsWith(
-      `${resolvedRoot}${path.sep}`,
-    )
+    resolvedDirectory === resolvedRoot ||
+    resolvedDirectory === resolvedSource
   ) {
     throw new Error(
-      `Refusing to clean unsafe directory: ${resolvedTarget}`,
+      `Refusing to clean unsafe directory: ${resolvedDirectory}`,
     );
   }
+};
+
+const cleanTargetDirectory = async (
+  target: string,
+): Promise<void> => {
+  if (target === sourceDir) {
+    return;
+  }
+
+  safeDirectoryCheck(target);
+
+  const resolvedTarget = path.resolve(target);
 
   await fs.mkdir(resolvedTarget, {
     recursive: true,
@@ -204,6 +305,17 @@ const exists = async (
   try {
     await fs.access(filePath);
     return true;
+  } catch {
+    return false;
+  }
+};
+
+const isDirectory = async (
+  directoryPath: string,
+): Promise<boolean> => {
+  try {
+    const info = await fs.stat(directoryPath);
+    return info.isDirectory();
   } catch {
     return false;
   }
@@ -254,11 +366,11 @@ const ensureDependencies =
   async (): Promise<void> => {
     const missing: string[] = [];
 
-    if (!(await exists(sourceDir))) {
+    if (!userSourceDir && !(await exists(sourceDir))) {
       missing.push(lucidePackage);
     }
 
-    if (pixelMode) {
+    if (pixelizationEnabled) {
       const resvgPath = path.join(
         root,
         "node_modules",
@@ -285,12 +397,82 @@ const ensureDependencies =
 
     await installPackages(missing);
 
-    if (!(await exists(sourceDir))) {
+    if (!(await isDirectory(sourceDir))) {
       throw new Error(
-        `Lucide icons directory not found: ${sourceDir}`,
+        `Source directory not found: ${sourceDir}`,
       );
     }
   };
+
+const listSourceSvgs = async (): Promise<string[]> => {
+  const files = await fs.readdir(sourceDir);
+
+  return files
+    .filter((file) =>
+      file.toLowerCase().endsWith(".svg")
+    )
+    .sort((a, b) => a.localeCompare(b));
+};
+
+const readOriginalFromGit = async (
+  fileName: string,
+): Promise<string> => {
+  const sourcePath = path.join(
+    sourceDir,
+    fileName,
+  );
+
+  const relativePath = path.relative(
+    root,
+    sourcePath,
+  );
+
+  if (
+    relativePath.startsWith("..") ||
+    path.isAbsolute(relativePath)
+  ) {
+    throw new Error(
+      `Cannot read original from git: ${fileName} is outside repository root (${root}).`,
+    );
+  }
+
+  const gitRef = `HEAD:${relativePath}`;
+
+  const result = await execFileAsync(
+    "git",
+    ["show", gitRef],
+    {
+      cwd: root,
+      encoding: "utf8",
+    },
+  );
+
+  return result.stdout as string;
+};
+
+const resolveRequestedFiles = (
+  requested: string[],
+  sourceFiles: string[],
+): string[] => {
+  const sourceByName = new Map<string, string>();
+
+  for (const sourceFile of sourceFiles) {
+    sourceByName.set(
+      sourceFile.toLowerCase(),
+      sourceFile,
+    );
+  }
+
+  return requested
+    .map((filename) =>
+      sourceByName.get(filename.toLowerCase()),
+    )
+    .filter(
+      (
+        filename,
+      ): filename is string => Boolean(filename),
+    );
+};
 
 /**
  * Removes decorative roundness while keeping semantic
@@ -331,6 +513,11 @@ const removeRoundness = (
   );
 
   return output;
+};
+
+type PixelizeResult = {
+  svg: string;
+  fallbackUsed: boolean;
 };
 
 type PixelMap = boolean[][];
@@ -602,7 +789,8 @@ const pixelizeSvg = async (
   blockSize: number,
   rasterThreshold: number,
   blockThreshold: number,
-): Promise<string> => {
+  file?: string,
+): Promise<PixelizeResult> => {
   const {
     Resvg,
   } = await import("@resvg/resvg-js");
@@ -718,6 +906,17 @@ const pixelizeSvg = async (
   const rectangles =
     vectorizePixelMap(snappedPixels);
 
+  if (rectangles.length === 0) {
+    console.warn(
+      `[fallback] ${file ?? "icon"} produced no pixel geometry; preserving squared source SVG.`,
+    );
+
+    return {
+      svg: removeRoundness(svg),
+      fallbackUsed: true,
+    };
+  }
+
   const body = rectangles
     .map(
       (rect) =>
@@ -738,50 +937,57 @@ ${body}
 `;
 };
 
+const hasGeometryElements = (
+  svg: string,
+): boolean => {
+  return /<\s*(?:path|rect|circle|ellipse|line|polyline|polygon)\b[^>]*>/i.test(
+    svg,
+  );
+};
+
+type ConvertSummary = {
+  pixelized: number;
+  fallback: number;
+  skipped: number;
+};
+
 const convertIcons =
-  async (): Promise<number> => {
-    await cleanTargetDirectory();
+  async (
+    files: string[],
+    totalSourceCount?: number,
+  ): Promise<ConvertSummary> => {
+  await cleanTargetDirectory(outputDir);
 
-    const files = (
-      await fs.readdir(sourceDir)
-    )
-      .filter((file) =>
-        file
-          .toLowerCase()
-          .endsWith(".svg"),
-      )
-      .sort((a, b) =>
-        a.localeCompare(b),
-      );
+  if (files.length === 0) {
+    throw new Error(
+      `No SVG files found in ${sourceDir}`,
+    );
+  }
 
-    const targetFiles = limit
-      ? files.slice(0, limit)
-      : files;
-
-    if (files.length === 0) {
-      throw new Error(
-        `No SVG files found in ${sourceDir}`,
-      );
-    }
-
+    let processed = 0;
     let converted = 0;
-    const totalToConvert = targetFiles.length;
-    const wasLimitApplied = limit !== undefined;
+    let pixelizedCount = 0;
+    let fallbackCount = 0;
+    let skippedCount = 0;
+    const totalToConvert = files.length;
+    const wasLimitApplied =
+      totalSourceCount !== undefined &&
+      totalSourceCount !== files.length;
 
     if (wasLimitApplied) {
       console.log(
-        `Limit enabled: generating ${totalToConvert}/${files.length} icons.`,
+        `Limit enabled: generating ${totalToConvert}/${totalSourceCount} icons.`,
       );
     }
 
-    for (const file of targetFiles) {
+    for (const file of files) {
       const sourcePath = path.join(
         sourceDir,
         file,
       );
 
       const targetPath = path.join(
-        targetDir,
+        outputDir,
         file,
       );
 
@@ -790,77 +996,338 @@ const convertIcons =
         "utf8",
       );
 
-      const convertedSvg = pixelMode
+      const result = pixelMode
         ? await pixelizeSvg(
             svg,
             grid,
             block,
             rasterThreshold,
             blockThreshold,
+            file,
           )
-        : removeRoundness(svg);
+        : {
+            svg: removeRoundness(svg),
+            fallbackUsed: false,
+          };
 
-      await fs.writeFile(
-        targetPath,
-        convertedSvg,
-        "utf8",
-      );
+      const finalSvg = result.svg;
+      const hasGeometry =
+        hasGeometryElements(finalSvg);
 
-      converted += 1;
+      if (!hasGeometry) {
+        console.error(
+          `[skip] ${file} produced an invalid SVG with no supported geometry; preserving source.`,
+        );
+
+        skippedCount += 1;
+      } else {
+        await fs.writeFile(
+          targetPath,
+          finalSvg,
+          "utf8",
+        );
+
+        converted += 1;
+
+        if (result.fallbackUsed) {
+          fallbackCount += 1;
+        } else {
+          pixelizedCount += 1;
+        }
+      }
+
+      processed += 1;
 
       if (
-        converted % 100 === 0 ||
-        converted === totalToConvert
+        processed % 100 === 0 ||
+        processed === totalToConvert
       ) {
         console.log(
-          `Converted ${converted}/${totalToConvert}`,
+          `Converted ${processed}/${totalToConvert}`,
         );
       }
     }
 
-    return converted;
+    return {
+      pixelized: pixelizedCount,
+      fallback: fallbackCount,
+      skipped: skippedCount,
+    };
   };
 
   const main = async (): Promise<void> => {
   console.log(
-    pixelMode
-      ? `Building pixelized Lucide icon set (${grid}x${grid}, block ${block}, raster threshold ${rasterThreshold}, block threshold ${blockThreshold})...`
-      : "Building squared Lucide icon set...",
+    `Source: ${sourceDir}`,
   );
 
   console.log("");
-  console.log(`Root:   ${root}`);
-  console.log(`Source: ${sourceDir}`);
-  console.log(`Target: ${targetDir}`);
-  console.log("");
-
-  await ensureDependencies();
-
-  const converted =
-    await convertIcons();
-
-  console.log("");
-
   console.log(
-    `Converted ${converted} Lucide icons.`,
-  );
-
-  console.log(
-    `Mode: ${
-      pixelMode
-        ? `pixel (${grid}x${grid}, block ${block}, raster threshold ${rasterThreshold}, block threshold ${blockThreshold})`
-        : "square"
+    `Output: ${
+      inPlace ? "in-place" : outputDir
     }`,
   );
 
+  await ensureDependencies();
+
+  const files = await listSourceSvgs();
+
+  if (files.length === 0) {
+    throw new Error(
+      `No SVG files found in ${sourceDir}`,
+    );
+  }
+
+  if (checkMode) {
+    console.log(`Checking ${files.length} SVG files...`);
+
+    const invalid: string[] = [];
+
+    for (const file of files) {
+      const sourcePath = path.join(
+        sourceDir,
+        file,
+      );
+
+      const svg = await fs.readFile(
+        sourcePath,
+        "utf8",
+      );
+
+      if (!hasGeometryElements(svg)) {
+        invalid.push(file);
+      }
+    }
+
+    console.log("");
+    console.log("Invalid / empty SVGs:");
+    for (const file of invalid) {
+      console.log(`- ${file}`);
+    }
+
+    const validCount =
+      files.length - invalid.length;
+
+    console.log("");
+    console.log(`Valid: ${validCount}`);
+    console.log(`Invalid: ${invalid.length}`);
+    console.log(`Total: ${files.length}`);
+
+    if (!fixMode) {
+      if (invalid.length > 0) {
+        process.exit(1);
+      }
+
+      console.log("Done.");
+      return;
+    }
+
+    let repairedWithPixelization = 0;
+    let repairedWithFallback = 0;
+    let failed = 0;
+
+    for (const file of invalid) {
+      let originalSvg: string;
+
+      try {
+        originalSvg = await readOriginalFromGit(file);
+      } catch (error) {
+        console.error(
+          `[fix] ${file}: failed to load original from git`,
+        );
+        failed += 1;
+        continue;
+      }
+
+      const result = await pixelizeSvg(
+        originalSvg,
+        grid,
+        block,
+        rasterThreshold,
+        blockThreshold,
+        file,
+      );
+
+      let repairedSvg = result.svg;
+      let usedFallback = false;
+
+      if (!hasGeometryElements(repairedSvg)) {
+        const fallbackSvg =
+          removeRoundness(originalSvg);
+
+        if (!hasGeometryElements(fallbackSvg)) {
+          console.error(
+            `[fix] ${file}: pixelization and fallback both produced no geometry`,
+          );
+
+          failed += 1;
+          continue;
+        }
+
+        repairedSvg = fallbackSvg;
+        usedFallback = true;
+      }
+
+      const targetPath = path.join(
+        sourceDir,
+        file,
+      );
+
+      await fs.writeFile(
+        targetPath,
+        repairedSvg,
+        "utf8",
+      );
+
+      if (usedFallback) {
+        repairedWithFallback += 1;
+      } else {
+        repairedWithPixelization += 1;
+      }
+    }
+
+    console.log("");
+    console.log(`Checked: ${files.length}`);
+    console.log(
+      `Invalid found: ${invalid.length}`,
+    );
+    console.log(
+      `Repaired with pixelization: ${repairedWithPixelization}`,
+    );
+    console.log(
+      `Repaired with fallback: ${repairedWithFallback}`,
+    );
+    console.log(`Failed: ${failed}`);
+
+    if (invalid.length > repairedWithPixelization + repairedWithFallback + failed) {
+      throw new Error(
+        "Fix attempt did not account for all invalid SVGs.",
+      );
+    }
+
+    if (failed > 0) {
+      process.exit(1);
+    }
+
+    console.log("Done.");
+    return;
+  }
+
+  const hasFilesFilter =
+    requestedFiles !== undefined;
+  const hasFileFilter =
+    requestedFile !== undefined;
+
+  const requestedFileList = hasFilesFilter
+    ? uniqueByLowerCase(
+        parseFilesList(requestedFiles),
+      )
+    : [];
+
+  const requestedSingleList = hasFileFilter
+    ? uniqueByLowerCase(
+        parseFilesList(requestedFile),
+      )
+    : [];
+
+  const selectedFromFilter = hasFilesFilter
+    ? resolveRequestedFiles(
+        requestedFileList,
+        files,
+      )
+    : hasFileFilter
+      ? resolveRequestedFiles(
+          requestedSingleList,
+          files,
+        )
+      : [];
+
+  const expectedFromFilter = hasFilesFilter
+    ? requestedFileList
+    : requestedSingleList;
+
+  const missingFiles = hasFilesFilter || hasFileFilter
+    ? expectedFromFilter.filter(
+        (requested) =>
+          !selectedFromFilter.some(
+            (selected) =>
+              selected.toLowerCase() ===
+              requested.toLowerCase(),
+          ),
+      )
+    : [];
+
+  if (
+    (hasFilesFilter || hasFileFilter) &&
+    missingFiles.length > 0
+  ) {
+    throw new Error(
+      `SVG files not found: ${missingFiles.join(", ")}`,
+    );
+  }
+
+  const filesToProcess = hasFilesFilter || hasFileFilter
+    ? selectedFromFilter
+    : limit
+      ? files.slice(0, limit)
+      : files;
+
+  const isLimitMode = limit !== undefined && !(
+    hasFilesFilter || hasFileFilter
+  );
+
+  if (hasFilesFilter) {
+    console.log(
+      `Selected files mode: ${filesToProcess.length} icons`,
+    );
+    console.log(
+      `Files: ${filesToProcess.join(", ")}`,
+    );
+  } else if (hasFileFilter) {
+    console.log(
+      `Single file mode: ${filesToProcess[0]}`,
+    );
+  }
+
+  console.log(`SVG files found: ${files.length}`);
   console.log(
-    `Output: ${targetDir}`,
+    `SVG files to process: ${filesToProcess.length}`,
+  );
+  console.log(
+    `Mode: ${pixelMode ? "pixel" : "square"}`,
+  );
+  console.log(`Grid: ${grid}`);
+  console.log(`Block: ${block}`);
+  console.log(`Raster threshold: ${rasterThreshold}`);
+  console.log(`Block threshold: ${blockThreshold}`);
+  console.log("");
+
+  const { pixelized, fallback, skipped } =
+    await convertIcons(
+      filesToProcess,
+      isLimitMode ? files.length : undefined,
+    );
+
+  console.log("");
+
+  console.log(
+    `Converted ${pixelized + fallback + skipped} Lucide icons.`,
+  );
+  console.log(`Pixelized: ${pixelized}`);
+  console.log(`Fallback: ${fallback}`);
+  console.log(`Skipped: ${skipped}`);
+
+  console.log(
+    `Output: ${
+      inPlace ? "in-place" : outputDir
+    }`,
   );
 
   console.log("");
   console.log("Generating preview...");
 
-  await generatePreview(targetDir);
+  await generatePreview(
+    inPlace ? sourceDir : outputDir,
+  );
 
   console.log("");
   console.log("Done.");
