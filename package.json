@@ -6,6 +6,8 @@
     "embed": "tsx scripts/embed.ts",
     "icon:search": "tsx scripts/search.ts",
     "generate": "tsx scripts/generate.ts",
+    "preview": "tsx scripts/preview.ts",
+    "index": "tsx scripts/build-index.ts",
     "rename": "tsx scripts/rename-icons.ts"
   },
   "dependencies": {"dotenv": "^16.4.7", "openai": "^5.0.0"},

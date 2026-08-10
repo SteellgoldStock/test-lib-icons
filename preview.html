@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Pixel Icon Preview</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      background: #0a0a0a;
+      color: #fff;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 20px 24px;
+
+      background: rgba(10, 10, 10, 0.94);
+      border-bottom: 1px solid #242424;
+
+      backdrop-filter: blur(12px);
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .count {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fill,
+          minmax(150px, 1fr)
+        );
+
+      gap: 12px;
+
+      padding: 24px;
+    }
+
+    figure {
+      overflow: hidden;
+
+      margin: 0;
+
+      background: #111;
+      border: 1px solid #242424;
+      border-radius: 8px;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      height: 140px;
+
+      color: #fff;
+      background: #080808;
+    }
+
+    .icon svg {
+      width: 64px;
+      height: 64px;
+
+      image-rendering: pixelated;
+    }
+
+    figcaption {
+      overflow: hidden;
+
+      padding: 10px 12px;
+
+      color: #aaa;
+      border-top: 1px solid #242424;
+
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+
+      font-size: 12px;
+
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .empty {
+      padding: 80px 24px;
+
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Pixel Icon Preview</h1>
+
+    <span class="count">
+      75 icons
+    </span>
+  </header>
+
+  
+        <main class="grid">
+          <figure>
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 5H21V7H3V5ZM3 17H21V19H3V17ZM1 7H3V17H1V7ZM21 7H23V17H21V7ZM4 8H7V10H4V8ZM5 10H7V16H5V10ZM8 8H13V10H8V8ZM8 11H13V13H8V11ZM8 14H13V16H8V14ZM8 10H10V11H8V10ZM11 10H13V11H11V10ZM8 13H10V14H8V13ZM11 13H13V14H11V13ZM16 9C16.781 9 17.219 9 18 9V15H16V9ZM14 11H20V13H14V11Z" />
+</svg>
+
+          </div>
+
+          <figcaption title="adult-content.svg">
+            adult-content
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M22 11v2H6v-2zm-12 2v2H8v-2zm2 2v2h-2v-2zm2 2v2h-2v-2zM10 9v2H8V9zm2-2v2h-2V7zm2-2v2h-2V5z"/></svg>
+
+          </div>
+
+          <figcaption title="arrow-left.svg">
+            arrow-left
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2h2v4h2v4H6v12H4V10H2V6h2V2Zm7 0h2v10h2v4h-2v6h-2v-6H9v-4h2V2Zm7 0h2v6h2v4h-2v10h-2V12h-2V8h2V2Z"/></svg>
+
+          </div>
+
+          <figcaption title="audio-tracks.svg">
+            audio-tracks
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M3 3h2v18H3zm2 2h2v2H5zm2 2h2v2H7zm2 2h2v2H9zm2 2h2v2h-2zm-2 2h2v2H9zm-2 2h2v2H7zm-2 2h2v2H5zm9-6h8v2h-8zm4-2h2v2h-2zm-2-2h2v2h-2zm2 6h2v2h-2zm-2 2h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="autoplay.svg">
+            autoplay
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 12h2v2H4zm2 2h2v2H6zm2 2h2v2H8zm2-2h2v2h-2zm2-2h2v2h-2zm2-2h2v2h-2zm2-2h2v2h-2zm2-2h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="check.svg">
+            check
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17 9v2h-2v2h-2v2h-2v-2H9v-2H7V9h10Z"/></svg>
+
+          </div>
+
+          <figcaption title="chevron-down.svg">
+            chevron-down
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M9 17h2v-2h2v-2h2v-2h-2V9h-2V7H9v10Z"/></svg>
+
+          </div>
+
+          <figcaption title="chevron-right.svg">
+            chevron-right
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17 15v-2h-2v-2h-2V9h-2v2H9v2H7v2h10Z"/></svg>
+
+          </div>
+
+          <figcaption title="chevron-up.svg">
+            chevron-up
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5h2v2H5zm12 0h2v2h-2zM7 7h2v2H7zm8 0h2v2h-2zM9 9h2v2H9zm4 0h2v2h-2zm-2 2h2v2h-2zm-2 2h2v2H9zm4 0h2v2h-2zm-6 2h2v2H7zm8 0h2v2h-2zM5 17h2v2H5zm12 0h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="close.svg">
+            close
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 2h2v20H8zm6 0h2v20h-2zM2 8h20v2H2zm0 6h20v2H2zM4 2h4v2H4zM2 4h2v4H2zm14-2h4v2h-4zm4 2h2v4h-2zM2 16h2v4H2zm2 4h4v2H4zm16-4h2v4h-2zm-4 4h4v2h-4z"/></svg>
+
+          </div>
+
+          <figcaption title="command.svg">
+            command
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2h16v2H4zM2 4h2v16H2zm18 0h2v16h-2zM4 20h16v2H4zM11 5h2v8h-2zM9 7h6v2H9zM7 9h10v2H7zm4 2h2v8h-2zm-4 2h10v2H7zm2 2h6v2H9z"/></svg>
+
+          </div>
+
+          <figcaption title="crop-bars.svg">
+            crop-bars
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M0 10h2v4H0zm24 0h-2v4h2zm-8 0h-2v2h2zm-6 0H8v4h2zM2 8h2v2H2zm0 8h2v-2H2zm20-8h-2v2h2zm0 8h-2v-2h2zM4 6h4v2H4zm0 12h4v-2H4zM20 6h-4v2h4zM10 4h6v2h-6zM8 20h8v-2H8zm4-12h2v2h-2zm-2 6h4v2h-4zM8 8h2v2H8zm2 2h2v4h-2zm2 2h2v2h-2zM6 6h2v2H6zM4 4h2v2H4zM2 2h2v2H2zm12 12h2v2h-2zm2 2h2v2h-2zm2 2h2v2h-2zm2 2h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="eye-off.svg">
+            eye-off
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M16 20H8v-2h8v2Zm-8-2H4v-2h4v2Zm12 0h-4v-2h4v2ZM4 16H2v-2h2v2Zm10-6h-2v2h2v-2h2v4h-2v2h-4v-2H8v-4h2V8h4v2Zm8 6h-2v-2h2v2ZM2 14H0v-4h2v4Zm22 0h-2v-4h2v4ZM4 10H2V8h2v2Zm18 0h-2V8h2v2ZM8 8H4V6h4v2Zm12 0h-4V6h4v2Zm-4-2H8V4h8v2Z"/></svg>
+
+          </div>
+
+          <figcaption title="eye.svg">
+            eye
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4H4v16h2zm10-2H6v2h10zm4 4h-2v14h2zm-2 14H6v2h12zM16 4h2v2h-2zm-4 0h2v6h-2zm0 4h6v2h-6zM8 13h2v4H8zm3-2h2v8h-2zm3 2h2v4h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="file-audio.svg">
+            file-audio
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path d="M4 2h10v2H4zM2 4h2v16H2zm12 0h2v2h-2zm2 2h2v2h-2zm-4 2h4v2h-4zM4 20h6v2H4zm6-12h4v2h-4zm-2 2h2v2H8zm6 0h2v2h-2zm-8 2h2v4H6zm10 0h2v4h-2zm-8 4h2v2h-2zm4 0h2v2h-2zm-2 2h4v2h-4zm6-2h2v2h-2zm2 2h2v2h-2zm2 2h2v2h-2z"/>
+</svg>
+
+          </div>
+
+          <figcaption title="file-search.svg">
+            file-search
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h6v2H4zm0 14h16v2H4zM2 6h2v12H2zm8 0h10v2H10zm10 2h2v10h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="folder-closed.svg">
+            folder-closed
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path d="M4 4h6v2H4zm0 14h8v2H4zM2 6h2v12H2zm8 0h10v2H10zm10 2h2v4h-2zm-5 2h4v2h-4zm-2 2h2v2h-2zm6 0h2v2h-2zm-5 2h6v2h-6zm-2 2h2v4h-2zm8 0h2v4h-2zm-6 4h6v2h-6z"/>
+</svg>
+
+          </div>
+
+          <figcaption title="folder-lock.svg">
+            folder-lock
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 4h6v2H4zm0 14h10v2H4zM20 8h2v6h-2zM2 6h2v12H2zm8 0h10v2H10zm6 12h6v2h-6zm2-2h2v2h-2zm0 4h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="folder-move.svg">
+            folder-move
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path d="M4 4h6v2H4zM2 6h2v12H2zm8 0h10v2H10zm10 2h2v2h-2zM8 10h14v2H8zm-2 2h2v2H6zm14 0h2v2h-2zM4 14h2v4H4zm14 0h2v4h-2zM4 18h14v2H4z"/>
+</svg>
+
+          </div>
+
+          <figcaption title="folder-open.svg">
+            folder-open
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 4h6v2H4zm0 14h10v2H4zM20 8h2v6h-2zM2 6h2v12H2zm8 0h10v2H10zm12 12v2h-6v-2zM18 16h2v6h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="folder-plus.svg">
+            folder-plus
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M7 3h2v6H3V7h4zm8 0h2v4h4v2h-6zM3 15h6v6H7v-4H3zm12 0h6v2h-4v4h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="fullscreen-exit.svg">
+            fullscreen-exit
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M2 2h8v2H4v6H2zm12 0h8v8h-2V4h-6zM2 14h2v6h6v2H2zm18 0h2v8h-8v-2h6z"/></svg>
+
+          </div>
+
+          <figcaption title="fullscreen.svg">
+            fullscreen
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 2h16v2H4zM2 4h2v16H2zm2 7h16v2H4zm16-7h2v16h-2zM11 4h2v18h-2zM4 20h16v2H4z"/></svg>
+
+          </div>
+
+          <figcaption title="grid-2x2.svg">
+            grid-2x2
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2h16v2H4zM2 4h2v16H2zm18 0h2v16h-2zM4 20h16v2H4zM9 6h6v2H9zM7 8h2v2H7zm8 0h2v2h-2zM6 10h2v4H6zm10 0h2v4h-2zm-5 1h2v2h-2zm-4 3h2v2H7zm8 0h2v2h-2zM9 16h6v2H9z"/></svg>
+
+          </div>
+
+          <figcaption title="hard-drive.svg">
+            hard-drive
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M5 2h4v2h2v2h2V4h2V2h4v2h2v2h2v6h-2v2h-2v2h-2v2h-2v2h-2v2h-2v-2H9v-2H7v-2H5v-2H3v-2H1V6h2V4h2V2Z"/></svg>
+
+          </div>
+
+          <figcaption title="heart-filled.svg">
+            heart-filled
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M13 22h-2v-2h2v2Zm-2-2H9v-2h2v2Zm4 0h-2v-2h2v2Zm-6-2H7v-2h2v2Zm8 0h-2v-2h2v2ZM7 16H5v-2h2v2Zm12 0h-2v-2h2v2ZM5 14H3v-2h2v2Zm16 0h-2v-2h2v2ZM3 12H1V6h2v6Zm20 0h-2V6h2v6ZM13 8h-2V6h2v2ZM5 6H3V4h2v2Zm6 0H9V4h2v2Zm4 0h-2V4h2v2Zm6 0h-2V4h2v2ZM9 4H5V2h4v2Zm10 0h-4V2h4v2Z"/></svg>
+
+          </div>
+
+          <figcaption title="heart.svg">
+            heart
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2h12v2H6zM4 4h2v2H4zm14 0h2v2h-2zm2 2h2v12h-2zM4 6h2v2h4v2H6v2H4v-2H2V8h2zm-2 6h2v6H2zm2 6h2v2H4zm2 2h12v2H6zm12-2h2v2h-2zM11 6h2v7h-2zm2 7h2v2h-2zm2 2h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="history.svg">
+            history
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M10 2h4v2h2v2h2v2h2v2h2v10h-2v2H4v-2H2V10h2V8h2V6h2V4h2V2ZM4 10v10h4v-6h2v-2h4v2h2v6h4V10h-2V8h-2V6h-2V4h-4v2H8v2H6v2H4Zm6 4v6h4v-6h-4Z"/></svg>
+
+          </div>
+
+          <figcaption title="home.svg">
+            home
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 2h16v2H4zM2 4h2v16H2zm18 0h2v16h-2zM4 20h16v2H4zM16 7h2v2h-2zM6 18v-2h2v-2h2v-2h2v2h2v2h2v-2h2v4H6z"/></svg>
+
+          </div>
+
+          <figcaption title="image.svg">
+            image
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2h10v2H7zM5 4h2v2H5zM3 6h2v4H3zM2 10h2v5H2zM4 15h2v3H4zM6 18h2v2H6zM8 20h8v2H8zM16 18h2v2h-2zM18 15h2v3h-2zM17 4h2v2h-2zM19 6h2v3h-2zM17 9h6v2h-2v2h-2v-2h-2zM9 8h2v8H9zM11 10h2v4h-2zM13 11h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="import-resume.svg">
+            import-resume
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2h16v2H4zm0 18h16v2H4zM2 4h2v16H2zm18 0h2v16h-2zM11 7h2v2h-2zm0 4h2v6h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="info.svg">
+            info
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h4v2H6zM4 8h2v2H4zM10 8h2v2h-2zM2 10h2v4H2zM10 10h2v4h-2zM4 14h2v2H4zM10 14h2v2h-2zM6 16h4v2H6zM12 10h10v4h-2v2h-4v-2h-2v-2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="key.svg">
+            key
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path d="M4 4h16v2H4zm0 14h16v2H4zM2 6h2v12H2zm18 0h2v12h-2z"/>
+  <path d="M5 7h2v2H5zm3 0h2v2H8zm3 0h2v2h-2zm3 0h2v2h-2zm3 0h2v2h-2zM5 11h2v2H5zm3 0h2v2H8zm3 0h2v2h-2zm3 0h2v2h-2zm3 0h2v2h-2zM5 15h2v2H5zm3 0h8v2H8zm9 0h2v2h-2z"/>
+</svg>
+
+          </div>
+
+          <figcaption title="keyboard.svg">
+            keyboard
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 2h8v2H8zM6 4h2v2H6zm10 0h2v2h-2zM4 6h2v2H4zm14 0h2v2h-2zM2 8h2v8H2zm18 0h2v8h-2zM4 16h2v2H4zm14 0h2v2h-2zM6 18h2v2H6zm10 0h2v2h-2zM8 20h8v2H8zM11 4h2v16h-2zM6 7h12v2H6zM4 11h16v2H4zM6 15h12v2H6z"/></svg>
+
+          </div>
+
+          <figcaption title="language.svg">
+            language
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 2h8v2H8zM6 4h2v2H6zm10 0h4v4h2v2h-6V8h2V6h-2zM4 6h2v4H4zm-2 4h2v6H2zm2 6h2v2H4zm2 2h2v2H6zm2 2h8v2H8zm8-2h2v2h-2zm2-2h2v2h-2zm2-4h2v4h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="library-refresh.svg">
+            library-refresh
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20 18H4v-2h16v2Zm0-5H4v-2h16v2Zm0-5H4V6h16v2Z"/></svg>
+
+          </div>
+
+          <figcaption title="list.svg">
+            list
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13 22h-2v-6h2v6ZM7 19H5v-2h2v2Zm12 0h-2v-2h2v2ZM9 17H7v-2h2v2Zm8 0h-2v-2h2v2ZM8 13H2v-2h6v2Zm14 0h-6v-2h6v2ZM9 9H7V7h2v2Zm8 0h-2V7h2v2Zm-4-1h-2V2h2v6ZM7 7H5V5h2v2Zm12 0h-2V5h2v2Z"/></svg>
+
+          </div>
+
+          <figcaption title="loader.svg">
+            loader
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 4h6v2H4zm0 14h16v2H4zM2 6h2v12H2zm8 0h10v2H10zm10 2h2v10h-2zM9 9h2v2h2V9h2v2h2v2h-2v2h2v2h-2v-2h-2v2h-2v-2H7v-2h2v-2H7v-2h2zm2 4h2v-2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="mark-series.svg">
+            mark-series
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 4h8v2H8zM4 6h4v2H4zm12 0h4v2h-4zM2 8h2v2H2zm18 0h2v2h-2zM0 10h2v4H0zm22 0h2v4h-2zM2 14h2v2H2zm18 0h2v2h-2zM4 16h4v2H4zm12 0h4v2h-4zM8 18h8v2H8zM7 11h2v2H7zm2 2h2v2H9zm2 2h2v2h-2zm2-2h2v2h-2zm2-2h2v2h-2zm2-2h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="mark-watched.svg">
+            mark-watched
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+
+          </div>
+
+          <figcaption title="menu.svg">
+            menu
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9h2v2H3zm8 0h2v2h-2zm8 0h2v2h-2zM1 11h6v2H1zm8 0h6v2H9zm8 0h6v2h-6zM3 13h2v2H3zm8 0h2v2h-2zm8 0h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="more-horizontal.svg">
+            more-horizontal
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 2h8v2H8zM6 4h2v2H6zm10 0h4v2h-4zM4 6h2v2H4zm16 0h2v8h-2zM2 8h2v8H2zm2 8h2v4H4zm2 4h8v2H6zm8-4h2v4h-2zm2-2h4v2h-4zM8 6h2v2H8zm-2 4h2v2H6zm2 4h2v2H8zm6-6h4v2h-4zm-2 2h2v2h-2zm6 0h2v2h-2zm-4 2h4v2h-4z"/></svg>
+
+          </div>
+
+          <figcaption title="palette.svg">
+            palette
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2h16v2H4zm0 18h16v2H4zM2 4h2v16H2zm18 0h2v16h-2zM14 4h2v16h-2zM7 7h2v2h2v2h2v2h-2v2H9v2H7V7z"/></svg>
+
+          </div>
+
+          <figcaption title="panel-right-close.svg">
+            panel-right-close
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 3H10V21H7V3ZM14 3H17V21H14V3Z" />
+</svg>
+
+          </div>
+
+          <figcaption title="pause.svg">
+            pause
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v2H4zM2 6h2v12H2zm18 0h2v12h-2zM4 18h16v2H4zm8-10h6v2h-6zm-2 2h2v4h-2zm6 0h2v4h-2zm-4 4h6v2h-6z"/></svg>
+
+          </div>
+
+          <figcaption title="picture-in-picture.svg">
+            picture-in-picture
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M7 3h2v2h2v2h2v2h2v2h2v2h-2v2h-2v2h-2v2H9v2H7z"/></svg>
+
+          </div>
+
+          <figcaption title="play.svg">
+            play
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 2h16v2H4zm0 18h16v2H4zM2 4h2v16H2zm18 0h2v16h-2zM11 6h2v8h-2zm0 10h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="playback-error.svg">
+            playback-error
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M7 5h2v12h3v2H4v-2h3V9H4V7h3zM12 7h2v2h-2zm8 0h2v2h-2zm-6 2h2v2h-2zm4 0h2v2h-2zm-2 2h2v2h-2zm-2 2h2v2h-2zm4 0h2v2h-2zm-6 2h2v2h-2zm8 0h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="playback-speed.svg">
+            playback-speed
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 2h10v2H8zm10 2h2v2h-2zm2 2h2v12h-2zm-2 12h2v2h-2zM6 20h12v2H6zm-2-2h2v2H4zm-2-8h2v8H2zM6 4h2v2H6zM4 6h2v2H4zM2 8h8v2H2zm2 2h2v2H4zm7-4h2v7h-2zm2 5h4v2h-4z"/></svg>
+
+          </div>
+
+          <figcaption title="progress-reset.svg">
+            progress-reset
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 16h2v2h2v2h2v2H2v-8h2v2Zm8 4h-2v-2h2v2Zm2-2h-2v-2h2v2Zm-4-2H8v-2h2v2Zm6 0h-2v-2h2v2ZM6 14H4v-2h2v2Zm6 0h-2v-2h2v2Zm6 0h-2v-2h2v2ZM8 12H6v-2h2v2Zm6 0h-2v-2h2v2Zm6 0h-2v-2h2v2ZM10 10H8V8h2v2Zm8 0h-2V8h2v2Zm4 0h-2V8h2v2ZM12 8h-2V6h2v2Zm4 0h-2V6h2v2Zm4 0h-2V6h2v2ZM14 6h-2V4h2v2Zm4 0h-2V4h2v2Zm-2-2h-2V2h2v2Z"/></svg>
+
+          </div>
+
+          <figcaption title="rename.svg">
+            rename
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17 5h2v2h-2zM5 17h2v2H5zm6-14h2v6h-2zM9 1h2v10H9zm10 16H9v2h10zM5 7H3v10h2z"/><path d="M11 15h2v6h-2zm2-2h2v10h-2zM5 5h10v2H5zm14 2h2v10h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="repeat.svg">
+            repeat
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2h2v16H7zM9 4h2v2H9zm2 2h2v2h-2zm2 2h2v2h-2zm2 2h2v2h-2zm-2 2h2v2h-2zm-2 2h2v2h-2zm-2 2h2v2H9zM3 19h18v2H3zm10-2h2v6h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="resume.svg">
+            resume
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M0 10h2v4H0zm24 0h-2v4h2zm-8 0h-2v2h2zm-6 0H8v4h2zM2 8h2v2H2zm0 8h2v-2H2zm20-8h-2v2h2zm0 8h-2v-2h2zM4 6h4v2H4zm0 12h4v-2H4zM20 6h-4v2h4zM10 4h6v2h-6zM8 20h8v-2H8zm4-12h2v2h-2zm-2 6h4v2h-4zM8 8h2v2H8zm2 2h2v4h-2zm2 2h2v2h-2zM6 6h2v2H6zM4 4h2v2H4zM2 2h2v2H2zm12 12h2v2h-2zm2 2h2v2h-2zm2 2h2v2h-2zm2 2h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="search-exclude.svg">
+            search-exclude
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M14 18H6v-2h8v2Zm4 0h-2v-2h2v2ZM6 16H4v-2h2v2Zm10 0h-2v-2h2v2ZM4 14H2V6h2v8Zm14 0h-2V6h2v8ZM6 6H4V4h2v2Zm10 0h-2V4h2v2Zm-2-2H6V2h8v2Zm6 16h-2v-2h2v2Zm2 2h-2v-2h2v2Z"/></svg>
+
+          </div>
+
+          <figcaption title="search.svg">
+            search
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8 6h8v2h2v2h2v4h-2v2h-2v2H8v-2H6v-2H4v-4h2V8h2V6Zm2 2v2H8v4h2v2h4v-2h2v-4h-2V8h-4Z"/><path d="M10 2h4v4h-4zM4 4h4v4H4zm12 0h4v4h-4zM2 10h4v4H2zm16 0h4v4h-4zM4 16h4v4H4zm12 0h4v4h-4zm-6 2h4v4h-4z"/></svg>
+
+          </div>
+
+          <figcaption title="settings.svg">
+            settings
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M4 2h16v2H4zM2 4h2v10H2zm18 0h2v10h-2zM4 14h2v2H4zm2 2h2v2H6zm2 2h2v2H8zm2 2h4v2h-4zm4-2h2v2h-2zm2-2h2v2h-2zm2-2h2v2h-2zM7 10h2v2H7zm2 2h2v2H9zm2-2h2v2h-2zm2-2h2v2h-2zm2-2h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="shield-check.svg">
+            shield-check
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M2 6h4v2H2zm4 2h2v2H6zm2 2h2v2H8zm2 2h2v2h-2zm2 2h2v2h-2zm2 2h6v2h-6zm4-2h2v2h-2zm2 2h2v2h-2zm-2 2h2v2h-2zM2 16h4v2H2zm4-2h2v2H6zm2-2h2v2H8zm2-2h2v2h-2zm2-2h2v2h-2zm2-2h6v2h-6zm4-2h2v2h-2zm2 2h2v2h-2zm-2 2h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="shuffle.svg">
+            shuffle
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 9H19V7H17V5H7V3H5V5H3V7H5V9H7V7H17V9H19V17H21V9ZM6 10H8V16H10V18H4V16H6V14H4V12H6V10ZM11 10H17V12H11V10ZM11 12H13V16H11V12ZM15 12H17V16H15V12ZM11 16H17V18H11V16Z" />
+</svg>
+
+          </div>
+
+          <figcaption title="skip-back-10.svg">
+            skip-back-10
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M18 5H16V7H14V9H12V11H10V13H12V15H14V17H16V19H18V5ZM8 5H6V19H8V5Z" />
+</svg>
+
+          </div>
+
+          <figcaption title="skip-back-filled.svg">
+            skip-back-filled
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 5H7V19H5V5ZM17 5H19V19H17V5ZM15 5H17V7H15V5ZM13 7H15V9H13V7ZM11 9H13V11H11V9ZM9 11H11V13H9V11ZM11 13H13V15H11V13ZM13 15H15V17H13V15ZM15 17H17V19H15V17Z" />
+</svg>
+
+          </div>
+
+          <figcaption title="skip-back.svg">
+            skip-back
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path d="M3 9h2V7h2V5h10V3h2v2h2v2h-2v2h-2V7H7v2H5v8H3zM9 10h2v6h2v2H7v-2h2v-2H7v-2h2zm5 0h6v2h-6zm0 2h2v4h-2zm4 0h2v4h-2zm-4 4h6v2h-6z"/>
+</svg>
+
+          </div>
+
+          <figcaption title="skip-forward-10.svg">
+            skip-forward-10
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 5H8V7H10V9H12V11H14V13H12V15H10V17H8V19H6V5ZM16 5H18V19H16V5Z" />
+</svg>
+
+          </div>
+
+          <figcaption title="skip-forward-filled.svg">
+            skip-forward-filled
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 5H17V19H19V5ZM7 5H5V19H7V5ZM9 5H7V7H9V5ZM11 7H9V9H11V7ZM13 9H11V11H13V9ZM15 11H13V13H15V11ZM13 13H11V15H13V13ZM11 15H9V17H11V15ZM9 17H7V19H9V17Z"/>
+</svg>
+
+          </div>
+
+          <figcaption title="skip-forward.svg">
+            skip-forward
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5h14v14H5z"/></svg>
+
+          </div>
+
+          <figcaption title="stop.svg">
+            stop
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M3 4h18v2H3zm0 14h18v2H3zM1 6h2v12H1zm20 0h2v12h-2zM11 7h2v2h3v2h-3v2h-2v-2H8V9h3zM5 14h6v2H5zm8 0h6v2h-6z"/></svg>
+
+          </div>
+
+          <figcaption title="subtitles-add.svg">
+            subtitles-add
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M3 4h18v2H3zm0 14h18v2H3zM1 6h2v12H1zm20 0h2v12h-2zM5 10h4v2H5zm6 0h8v2h-8zM5 14h8v2H5zm10 0h4v2h-4z"/></svg>
+
+          </div>
+
+          <figcaption title="subtitles.svg">
+            subtitles
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M3 2h12v2H5v3H3zm12 2h2v2h-2zm2 2h2v2h-2zm2 2h2v2h-2zm2 2h2v4h-2zM2 7h10v2H4v12h10v2H2zm10 2h2v2h-2zm2 2h2v2h-2zm2 2h2v2h-2zm2 2h2v4h-2zm-2 4h2v2h-2zm-2 2h2v2h-2zM8 10h2v2H8zm-2 2h2v2H6zm4 0h2v2h-2zm-2 2h2v2H8z"/></svg>
+
+          </div>
+
+          <figcaption title="tags.svg">
+            tags
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 2h16v2H4zM2 4h2v16H2zm18 0h2v16h-2zM4 20h16v2H4zM14 6h2v2h-2zM4 16h2v2H4zm2-2h2v2H6zm2-2h2v2H8zm2 2h2v2h-2zm2 2h2v2h-2zm2-2h2v2h-2zm2-2h2v2h-2zm2 2h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="thumbnails.svg">
+            thumbnails
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h2v4h10v2H8v4H6v-2H4v-2H2V8h2V6h2V4Zm12 6h2v2h-2v-2Zm2 2h2v4h-2v-4Zm-8 0h4v2h4v2h-2v4h-2v-4h-4v4h-2v-4H8v-2h4v-2Zm-2 8h8v2h-8v-2Z"/></svg>
+
+          </div>
+
+          <figcaption title="trash-restore.svg">
+            trash-restore
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M18 22H6v-2h12v2ZM9 6h6V4h2v2h5v2h-2v12h-2V8H6v12H4V8H2V6h5V4h2v2Zm6-2H9V2h6v2Z"/></svg>
+
+          </div>
+
+          <figcaption title="trash.svg">
+            trash
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M5 8h14v2H5zm0 12h14v2H5zM3 10h2v10H3zm16 0h2v10h-2zM7 4h2v4H7zm2-2h6v2H9zm6 2h2v4h-2zm-5 8h4v4h-1v2h-2v-2h-1z"/></svg>
+
+          </div>
+
+          <figcaption title="vault-locked.svg">
+            vault-locked
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M5 8h14v2H5zm0 12h14v2H5zM3 10h2v10H3zm16 0h2v10h-2zM7 4h2v4H7zm2-2h6v2H9zm6 2h2v2h-2z"/></svg>
+
+          </div>
+
+          <figcaption title="vault-unlocked.svg">
+            vault-unlocked
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M11 22H9v-2H7v-2h2V6H7V4h2V2h2v20Zm8 0h-6v-2h6v2Zm2-2h-2v-2h2v2ZM7 18H5v-2h2v2Zm10 0h-4v-2h4v2Zm6 0h-2V6h2v12ZM5 10H3v4h2v2H1V8h4v2Zm14 6h-2V8h2v8Zm-4-2h-2v-4h2v4ZM7 8H5V6h2v2Zm10 0h-4V6h4v2Zm4-2h-2V4h2v2Zm-2-2h-6V2h6v2Z"/></svg>
+
+          </div>
+
+          <figcaption title="volume-high.svg">
+            volume-high
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M15 22h-2v-2h-2v-2h2V6h-2V4h2V2h2v20Zm-4-4H9v-2h2v2ZM9 8v2H7v4h2v2H5V8h4Zm10 6h-2v-4h2v4Zm-8-6H9V6h2v2Z"/></svg>
+
+          </div>
+
+          <figcaption title="volume-low.svg">
+            volume-low
+          </figcaption>
+        </figure>
+<figure>
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M15 22h-2v-2h-2v-2h2V6h-2V4h2V2h2v20Zm-4-4H9v-2h2v2ZM9 8v2H7v4h2v2H5V8h4Zm2 0H9V6h2v2Zm6 0h2v2h-2V8Zm4 0h2v2h-2V8Zm-2 2h2v4h-2v-4Zm-2 4h2v2h-2v-2Zm4 0h2v2h-2v-2Z"/></svg>
+
+          </div>
+
+          <figcaption title="volume-mute.svg">
+            volume-mute
+          </figcaption>
+        </figure>
+        </main>
+      
+</body>
+</html>

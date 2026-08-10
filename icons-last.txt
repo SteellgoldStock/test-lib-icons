@@ -1,0 +1,67 @@
+KEY — Classic key shape (shaft + bit), pixel art 24×24, for the “unlock vault” dialog when the user is not authenticated yet (distinct from a padlock).
+EMPTY SEARCH — Magnifying glass alone OR document with magnifying glass overlay, pixel art 24×24, for the “no search results” empty state in the library.
+OPEN FOLDER — Folder with raised or open top flap, pixel art 24×24, visually distinct from closed folder, for the “this folder is empty” empty state.
+MOVE — Folder with arrow entering or leaving (transfer/move), pixel art 24×24, for the “move to…” action in media context menus.
+FULLSCREEN — Four outward-pointing L-shaped corners (expand), pixel art 24×24, for entering fullscreen and for “open player” from the mini-player.
+EXIT FULLSCREEN — Four inward-pointing L-shaped corners (shrink), pixel art 24×24, for exiting fullscreen (visual inverse of FULLSCREEN).
+SIDE PANEL — Vertical rectangle (panel) with arrow or chevron showing collapse/expand, pixel art 24×24, for showing/hiding the library right panel.
+REWIND 10 SECONDS — Circular arrow or double left chevron, optional small “10”, pixel art 24×24, for rewinding 10 seconds in the player (distinct from previous media).
+FORWARD 10 SECONDS — Circular arrow or double right chevron, pixel art 24×24, for skipping forward 10 seconds in the player (distinct from next media).
+PREVIOUS MEDIA — Left-pointing triangle/chevron or vertical bar + left triangle (previous track), pixel art 24×24, for previous media in the mini-player.
+NEXT MEDIA — Right-pointing triangle/chevron or right triangle + vertical bar (next track), pixel art 24×24, for next media in the mini-player.
+RESTORE FROM TRASH — Curved arrow returning left (undo/restore), pixel art 24×24, for restoring an item from trash (not a circular refresh arrow).
+RESET PROGRESS — Circle with arrow plus small reset indicator (or clock with strike), pixel art 24×24, for “reset playback progress” on a media item (distinct from library refresh).
+RESUME PLAYBACK — Play triangle with small position marker (dot or progress bar), pixel art 24×24, for the “resume where you left off” dialog.
+LANGUAGE — Two overlapping letters or simplified globe, pixel art 24×24, for the “language” entry in settings (not a hamburger menu).
+THEME — Paintbrush, color palette, or color swatches, pixel art 24×24, for the “theme / appearance” entry in settings (distinct from general settings).
+SETTINGS — Gear or adjustment sliders, pixel art 24×24, for the header settings button (should suggest “settings”, not only an audio equalizer).
+AUTOPLAY — Play triangle followed by small arrow or loop to the right, pixel art 24×24, for the “autoplay next media” toggle.
+DISK STORAGE — Hard drive or storage cylinder (not database rows), pixel art 24×24, for the disk space indicator in the sidebar.
+ADULT CONTENT — Padlock with 18+ symbol OR shield with restriction mark, pixel art 24×24, distinct from plain vault padlock, for marking/unmarking adult content.
+THUMBNAILS — Framed image/photo (rectangle with simplified landscape), pixel art 24×24, for the “show thumbnails” toggle (clearer than a plain eye).
+AUDIO FILE — Music note or sound wave in a frame, pixel art 24×24, for representing audio files in tree and lists (when not video).
+IMAGE FILE — Framed image/photo, pixel art 24×24, for representing image files in lists and exclusions (distinct from video).
+MARK AS SERIES — Bookmark or folder with episodic numbering, pixel art 24×24, for “mark as series” action (distinct from a plain checkmark).
+MARK AS WATCHED — Eye with checkmark OR double checkmark in circle, pixel art 24×24, for “mark as watched / unwatched” (distinct from mark as series).
+RESUME IMPORT — Circular forward arrow with resume indicator, pixel art 24×24, for resuming an interrupted vault import (not identical to refresh).
+REFRESH LIBRARY — Closed circular arrow (classic reload), pixel art 24×24, reserved only for the header “refresh library” button.
+CLOSED FOLDER — Classic closed folder, pixel art 24×24, reference version distinct from open folder and move-folder icons.
+LOCKED FOLDER — Closed folder with small padlock overlay, pixel art 24×24, for adult/locked folders in tree and grid view.
+VAULT LOCKED — Closed padlock, pixel art 24×24, reserved for “vault locked / security” state (consistent everywhere).
+VAULT UNLOCKED — Open padlock, pixel art 24×24, reserved for “vault unlocked” state.
+PLAY — Solid right-pointing play triangle, pixel art 24×24, clear reference version for all play buttons (player, details, resume).
+FAVORITE ACTIVE — Solid heart, pixel art 24×24, consistent with outline heart for favorites.
+FAVORITE INACTIVE — Outline heart only, pixel art 24×24, for non-favorited media.
+HISTORY — Clock or hourglass, pixel art 24×24, for the “continue watching / history” collection.
+TRASH — Trash bin, pixel art 24×24, for trash collection and delete actions.
+SEARCH — Magnifying glass alone, pixel art 24×24, for the header search field (keep consistent if already readable).
+INFORMATION — Letter “i” in square or circle, pixel art 24×24, for information panels and media details.
+ERROR ALERT — Exclamation mark in square or warning triangle, pixel art 24×24, for playback errors.
+LOADING — Pixel spinner wheel (rotating segments), pixel art 24×24, for all loading states.
+SUBTITLES — Subtitle rectangle with text lines or CC badge, pixel art 24×24, for “add subtitles” action.
+PICTURE IN PICTURE — Small video rectangle in corner of large rectangle, pixel art 24×24, for PiP mode in the player.
+CROP BLACK BARS — Frame with up/down arrows cropping bars, pixel art 24×24, for “remove black bars” (aspect ratio crop).
+PLAYBACK SPEED — Stylized “1×” text or speed gauge, pixel art 24×24, for playback speed menu.
+AUDIO TRACKS — Vertical sliders like equalizer, pixel art 24×24, for audio/subtitle tracks menu in player (can stay close to current).
+LIST VIEW — Three stacked horizontal lines (list), pixel art 24×24, for switching to list view.
+GRID VIEW — 2×2 grid of squares, pixel art 24×24, for switching to grid view.
+HOME — Simplified small house, pixel art 24×24, for return to library root button.
+MOBILE MENU — Three horizontal lines (hamburger), pixel art 24×24, reserved only for opening mobile menu/sidebar.
+CLOSE — X cross, pixel art 24×24, for closing dialogs and panels.
+CONFIRM — Simple checkmark, pixel art 24×24, for selections and generic confirmations.
+RENAME — Pencil/pen, pixel art 24×24, for rename action.
+DELETE — Trash bin, pixel art 24×24, for sending to trash.
+CREATE FOLDER — Folder with plus sign, pixel art 24×24, for creating a new folder.
+MORE ACTIONS — Three horizontal dots, pixel art 24×24, for “more options” menu on mobile.
+VOLUME MUTE — Speaker crossed out or without sound waves, pixel art 24×24, for muted volume.
+VOLUME LOW — Speaker with one small wave, pixel art 24×24, for low volume.
+VOLUME HIGH — Speaker with multiple waves, pixel art 24×24, for normal/high volume.
+SHUFFLE — Two crossed diagonal arrows, pixel art 24×24, for shuffle mode.
+REPEAT — Two arrows forming a circle, pixel art 24×24, for repeat mode.
+HIDE PASSWORD — Crossed-out eye, pixel art 24×24, for show/hide password toggle.
+SHOW CONTENT — Open eye, pixel art 24×24, for revealing masked content (keep consistent eye pair with hide).
+SEARCH EXCLUSION — Crossed-out eye with optional crossed magnifying glass, pixel art 24×24, for “search exclusions” section in settings.
+SECURITY — Shield with checkmark, pixel art 24×24, for vault onboarding and security.
+CHEVRON DOWN — Small downward chevron, pixel art 16–24 px, for expanding folders and comboboxes.
+CHEVRON RIGHT — Small rightward chevron, pixel art 16–24 px, for breadcrumb navigation and submenus.
+CHEVRON UP — Small upward chevron, pixel art 16–24 px, for open dropdown menus (playback speed).
