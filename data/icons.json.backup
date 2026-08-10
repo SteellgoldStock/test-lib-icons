@@ -1,11 +1,11 @@
 [
   {
-    "name": "alert",
+    "name": "RiAlertLine",
     "description": "Pixel-art interface icon representing alert.",
     "tags": [
       "alert"
     ],
-    "file": "icons/alert.svg",
+    "file": "icons/RiAlertLine.svg",
     "embedding": [
       -0.00728607177734375,
       -0.01043701171875,
@@ -1546,14 +1546,14 @@
     ]
   },
   {
-    "name": "arrow-down-s",
+    "name": "RiArrowDownSLine",
     "description": "Pixel-art interface icon representing arrow down s.",
     "tags": [
       "arrow",
       "down",
       "s"
     ],
-    "file": "icons/arrow-down-s.svg",
+    "file": "icons/RiArrowDownSLine.svg",
     "embedding": [
       0.032806396484375,
       0.0197296142578125,
@@ -3094,14 +3094,14 @@
     ]
   },
   {
-    "name": "arrow-right-s",
+    "name": "RiArrowRightSLine",
     "description": "Pixel-art interface icon representing arrow right s.",
     "tags": [
       "arrow",
       "right",
       "s"
     ],
-    "file": "icons/arrow-right-s.svg",
+    "file": "icons/RiArrowRightSLine.svg",
     "embedding": [
       0.036346435546875,
       0.012054443359375,
@@ -4642,14 +4642,14 @@
     ]
   },
   {
-    "name": "arrow-up-s",
+    "name": "RiArrowUpSLine",
     "description": "Pixel-art interface icon representing arrow up s.",
     "tags": [
       "arrow",
       "up",
       "s"
     ],
-    "file": "icons/arrow-up-s.svg",
+    "file": "icons/RiArrowUpSLine.svg",
     "embedding": [
       0.033233642578125,
       0.00830078125,
@@ -6190,13 +6190,13 @@
     ]
   },
   {
-    "name": "aspect-ratio",
+    "name": "RiAspectRatioLine",
     "description": "Pixel-art interface icon representing aspect ratio.",
     "tags": [
       "aspect",
       "ratio"
     ],
-    "file": "icons/aspect-ratio.svg",
+    "file": "icons/RiAspectRatioLine.svg",
     "embedding": [
       -0.019622802734375,
       -0.001850128173828125,
@@ -7737,12 +7737,12 @@
     ]
   },
   {
-    "name": "check",
+    "name": "RiCheckLine",
     "description": "Pixel-art interface icon representing check.",
     "tags": [
       "check"
     ],
-    "file": "icons/check.svg",
+    "file": "icons/RiCheckLine.svg",
     "embedding": [
       0.01727294921875,
       0.01142120361328125,
@@ -9283,14 +9283,14 @@
     ]
   },
   {
-    "name": "checkbox-blank-circle-fill",
+    "name": "RiCheckboxBlankCircleFill",
     "description": "Pixel-art interface icon representing checkbox blank circle.",
     "tags": [
       "checkbox",
       "blank",
       "circle"
     ],
-    "file": "icons/checkbox-blank-circle-fill.svg",
+    "file": "icons/RiCheckboxBlankCircleFill.svg",
     "embedding": [
       0.021759033203125,
       -0.007007598876953125,
@@ -10831,13 +10831,13 @@
     ]
   },
   {
-    "name": "checkbox-circle",
+    "name": "RiCheckboxCircleLine",
     "description": "Pixel-art interface icon representing checkbox circle.",
     "tags": [
       "checkbox",
       "circle"
     ],
-    "file": "icons/checkbox-circle.svg",
+    "file": "icons/RiCheckboxCircleLine.svg",
     "embedding": [
       0.0084991455078125,
       -0.0101165771484375,
@@ -12378,12 +12378,12 @@
     ]
   },
   {
-    "name": "close",
+    "name": "RiCloseLine",
     "description": "Pixel-art interface icon representing close.",
     "tags": [
       "close"
     ],
-    "file": "icons/close.svg",
+    "file": "icons/RiCloseLine.svg",
     "embedding": [
       -0.0032501220703125,
       0.0090179443359375,
@@ -13924,13 +13924,13 @@
     ]
   },
   {
-    "name": "closed-captioning",
+    "name": "RiClosedCaptioningLine",
     "description": "Pixel-art interface icon representing closed captioning.",
     "tags": [
       "closed",
       "captioning"
     ],
-    "file": "icons/closed-captioning.svg",
+    "file": "icons/RiClosedCaptioningLine.svg",
     "embedding": [
       -0.0013275146484375,
       0.0094146728515625,
@@ -15471,12 +15471,12 @@
     ]
   },
   {
-    "name": "command",
+    "name": "RiCommandLine",
     "description": "Pixel-art interface icon representing command.",
     "tags": [
       "command"
     ],
-    "file": "icons/command.svg",
+    "file": "icons/RiCommandLine.svg",
     "embedding": [
       -0.004108428955078125,
       -0.01151275634765625,
@@ -17017,14 +17017,14 @@
     ]
   },
   {
-    "name": "delete-bin6",
+    "name": "RiDeleteBin6Line",
     "description": "Pixel-art interface icon representing delete bin 6.",
     "tags": [
       "delete",
       "bin",
       "6"
     ],
-    "file": "icons/delete-bin6.svg",
+    "file": "icons/RiDeleteBin6Line.svg",
     "embedding": [
       0.00801849365234375,
       0.0081329345703125,
@@ -18565,12 +18565,12 @@
     ]
   },
   {
-    "name": "edit",
+    "name": "RiEditLine",
     "description": "Pixel-art interface icon representing edit.",
     "tags": [
       "edit"
     ],
-    "file": "icons/edit.svg",
+    "file": "icons/RiEditLine.svg",
     "embedding": [
       0.01351165771484375,
       0.0101776123046875,
@@ -20111,13 +20111,13 @@
     ]
   },
   {
-    "name": "equalizer2",
+    "name": "RiEqualizer2Line",
     "description": "Pixel-art interface icon representing equalizer 2.",
     "tags": [
       "equalizer",
       "2"
     ],
-    "file": "icons/equalizer2.svg",
+    "file": "icons/RiEqualizer2Line.svg",
     "embedding": [
       -0.0017671585083007812,
       -0.029632568359375,
@@ -21658,12 +21658,12 @@
     ]
   },
   {
-    "name": "eye",
+    "name": "RiEyeLine",
     "description": "Pixel-art interface icon representing eye.",
     "tags": [
       "eye"
     ],
-    "file": "icons/eye.svg",
+    "file": "icons/RiEyeLine.svg",
     "embedding": [
       0.004718780517578125,
       -0.0145263671875,
@@ -23204,13 +23204,13 @@
     ]
   },
   {
-    "name": "eye-off",
+    "name": "RiEyeOffLine",
     "description": "Pixel-art interface icon representing eye off.",
     "tags": [
       "eye",
       "off"
     ],
-    "file": "icons/eye-off.svg",
+    "file": "icons/RiEyeOffLine.svg",
     "embedding": [
       0.017059326171875,
       0.0117034912109375,
@@ -24751,13 +24751,13 @@
     ]
   },
   {
-    "name": "file-search",
+    "name": "RiFileSearchLine",
     "description": "Pixel-art interface icon representing file search.",
     "tags": [
       "file",
       "search"
     ],
-    "file": "icons/file-search.svg",
+    "file": "icons/RiFileSearchLine.svg",
     "embedding": [
       0.005001068115234375,
       0.0177154541015625,
@@ -26298,13 +26298,13 @@
     ]
   },
   {
-    "name": "file-video",
+    "name": "RiFileVideoLine",
     "description": "Pixel-art interface icon representing file video.",
     "tags": [
       "file",
       "video"
     ],
-    "file": "icons/file-video.svg",
+    "file": "icons/RiFileVideoLine.svg",
     "embedding": [
       -0.01293182373046875,
       0.009796142578125,
@@ -27845,13 +27845,13 @@
     ]
   },
   {
-    "name": "folder-add",
+    "name": "RiFolderAddLine",
     "description": "Pixel-art interface icon representing folder add.",
     "tags": [
       "folder",
       "add"
     ],
-    "file": "icons/folder-add.svg",
+    "file": "icons/RiFolderAddLine.svg",
     "embedding": [
       -0.01268768310546875,
       -0.0170135498046875,
@@ -29392,12 +29392,12 @@
     ]
   },
   {
-    "name": "folder",
+    "name": "RiFolderLine",
     "description": "Pixel-art interface icon representing folder.",
     "tags": [
       "folder"
     ],
-    "file": "icons/folder.svg",
+    "file": "icons/RiFolderLine.svg",
     "embedding": [
       -0.00948333740234375,
       -0.0229339599609375,
@@ -30938,13 +30938,13 @@
     ]
   },
   {
-    "name": "folder-open",
+    "name": "RiFolderOpenLine",
     "description": "Pixel-art interface icon representing folder open.",
     "tags": [
       "folder",
       "open"
     ],
-    "file": "icons/folder-open.svg",
+    "file": "icons/RiFolderOpenLine.svg",
     "embedding": [
       -0.00209808349609375,
       0.005367279052734375,
@@ -32485,13 +32485,13 @@
     ]
   },
   {
-    "name": "folder-transfer",
+    "name": "RiFolderTransferLine",
     "description": "Pixel-art interface icon representing folder transfer.",
     "tags": [
       "folder",
       "transfer"
     ],
-    "file": "icons/folder-transfer.svg",
+    "file": "icons/RiFolderTransferLine.svg",
     "embedding": [
       -0.00676727294921875,
       -0.0247955322265625,
@@ -34032,13 +34032,13 @@
     ]
   },
   {
-    "name": "fullscreen-exit",
+    "name": "RiFullscreenExitLine",
     "description": "Pixel-art interface icon representing fullscreen exit.",
     "tags": [
       "fullscreen",
       "exit"
     ],
-    "file": "icons/fullscreen-exit.svg",
+    "file": "icons/RiFullscreenExitLine.svg",
     "embedding": [
       -0.01293182373046875,
       0.0093231201171875,
@@ -35579,12 +35579,12 @@
     ]
   },
   {
-    "name": "fullscreen",
+    "name": "RiFullscreenLine",
     "description": "Pixel-art interface icon representing fullscreen.",
     "tags": [
       "fullscreen"
     ],
-    "file": "icons/fullscreen.svg",
+    "file": "icons/RiFullscreenLine.svg",
     "embedding": [
       -0.003936767578125,
       -0.013641357421875,
@@ -37125,12 +37125,12 @@
     ]
   },
   {
-    "name": "grid",
+    "name": "RiGridLine",
     "description": "Pixel-art interface icon representing grid.",
     "tags": [
       "grid"
     ],
-    "file": "icons/grid.svg",
+    "file": "icons/RiGridLine.svg",
     "embedding": [
       -0.02264404296875,
       -0.01311492919921875,
@@ -38671,14 +38671,14 @@
     ]
   },
   {
-    "name": "hard-drive2",
+    "name": "RiHardDrive2Line",
     "description": "Pixel-art interface icon representing hard drive 2.",
     "tags": [
       "hard",
       "drive",
       "2"
     ],
-    "file": "icons/hard-drive2.svg",
+    "file": "icons/RiHardDrive2Line.svg",
     "embedding": [
       0.006793975830078125,
       -0.0287017822265625,
@@ -40219,12 +40219,12 @@
     ]
   },
   {
-    "name": "heart-fill",
+    "name": "RiHeartFill",
     "description": "Pixel-art interface icon representing heart.",
     "tags": [
       "heart"
     ],
-    "file": "icons/heart-fill.svg",
+    "file": "icons/RiHeartFill.svg",
     "embedding": [
       -0.0042877197265625,
       -0.0269775390625,
@@ -41765,12 +41765,12 @@
     ]
   },
   {
-    "name": "heart",
+    "name": "RiHeartLine",
     "description": "Pixel-art interface icon representing heart.",
     "tags": [
       "heart"
     ],
-    "file": "icons/heart.svg",
+    "file": "icons/RiHeartLine.svg",
     "embedding": [
       -0.0161895751953125,
       -0.033172607421875,
@@ -43311,12 +43311,12 @@
     ]
   },
   {
-    "name": "history",
+    "name": "RiHistoryLine",
     "description": "Pixel-art interface icon representing history.",
     "tags": [
       "history"
     ],
-    "file": "icons/history.svg",
+    "file": "icons/RiHistoryLine.svg",
     "embedding": [
       -0.005382537841796875,
       -0.023223876953125,
@@ -44857,12 +44857,12 @@
     ]
   },
   {
-    "name": "home",
+    "name": "RiHomeLine",
     "description": "Pixel-art interface icon representing home.",
     "tags": [
       "home"
     ],
-    "file": "icons/home.svg",
+    "file": "icons/RiHomeLine.svg",
     "embedding": [
       0.002811431884765625,
       -0.0207366943359375,
@@ -46403,12 +46403,12 @@
     ]
   },
   {
-    "name": "information",
+    "name": "RiInformationLine",
     "description": "Pixel-art interface icon representing information.",
     "tags": [
       "information"
     ],
-    "file": "icons/information.svg",
+    "file": "icons/RiInformationLine.svg",
     "embedding": [
       -0.0061798095703125,
       -0.0272216796875,
@@ -47949,13 +47949,13 @@
     ]
   },
   {
-    "name": "key2",
+    "name": "RiKey2Line",
     "description": "Pixel-art interface icon representing key 2.",
     "tags": [
       "key",
       "2"
     ],
-    "file": "icons/key2.svg",
+    "file": "icons/RiKey2Line.svg",
     "embedding": [
       0.022705078125,
       -0.0214080810546875,
@@ -49496,12 +49496,12 @@
     ]
   },
   {
-    "name": "keyboard",
+    "name": "RiKeyboardLine",
     "description": "Pixel-art interface icon representing keyboard.",
     "tags": [
       "keyboard"
     ],
-    "file": "icons/keyboard.svg",
+    "file": "icons/RiKeyboardLine.svg",
     "embedding": [
       -0.0024585723876953125,
       -0.00351715087890625,
@@ -51042,13 +51042,13 @@
     ]
   },
   {
-    "name": "list-unordered",
+    "name": "RiListUnordered",
     "description": "Pixel-art interface icon representing list unordered.",
     "tags": [
       "list",
       "unordered"
     ],
-    "file": "icons/list-unordered.svg",
+    "file": "icons/RiListUnordered.svg",
     "embedding": [
       -0.0129547119140625,
       -0.03204345703125,
@@ -52589,13 +52589,13 @@
     ]
   },
   {
-    "name": "loader4",
+    "name": "RiLoader4Line",
     "description": "Pixel-art interface icon representing loader 4.",
     "tags": [
       "loader",
       "4"
     ],
-    "file": "icons/loader4.svg",
+    "file": "icons/RiLoader4Line.svg",
     "embedding": [
       0.0242156982421875,
       -0.002658843994140625,
@@ -54136,13 +54136,13 @@
     ]
   },
   {
-    "name": "lock-password",
+    "name": "RiLockPasswordLine",
     "description": "Pixel-art interface icon representing lock password.",
     "tags": [
       "lock",
       "password"
     ],
-    "file": "icons/lock-password.svg",
+    "file": "icons/RiLockPasswordLine.svg",
     "embedding": [
       -0.0066375732421875,
       -0.01143646240234375,
@@ -55683,13 +55683,13 @@
     ]
   },
   {
-    "name": "lock-unlock",
+    "name": "RiLockUnlockLine",
     "description": "Pixel-art interface icon representing lock unlock.",
     "tags": [
       "lock",
       "unlock"
     ],
-    "file": "icons/lock-unlock.svg",
+    "file": "icons/RiLockUnlockLine.svg",
     "embedding": [
       -0.0014867782592773438,
       0.00949859619140625,
@@ -57230,12 +57230,12 @@
     ]
   },
   {
-    "name": "menu",
+    "name": "RiMenuLine",
     "description": "Pixel-art interface icon representing menu.",
     "tags": [
       "menu"
     ],
-    "file": "icons/menu.svg",
+    "file": "icons/RiMenuLine.svg",
     "embedding": [
       -0.02752685546875,
       -0.007457733154296875,
@@ -58776,13 +58776,13 @@
     ]
   },
   {
-    "name": "more2-fill",
+    "name": "RiMore2Fill",
     "description": "Pixel-art interface icon representing more 2.",
     "tags": [
       "more",
       "2"
     ],
-    "file": "icons/more2-fill.svg",
+    "file": "icons/RiMore2Fill.svg",
     "embedding": [
       0.002532958984375,
       -0.029052734375,
@@ -60323,13 +60323,13 @@
     ]
   },
   {
-    "name": "music2",
+    "name": "RiMusic2Line",
     "description": "Pixel-art interface icon representing music 2.",
     "tags": [
       "music",
       "2"
     ],
-    "file": "icons/music2.svg",
+    "file": "icons/RiMusic2Line.svg",
     "embedding": [
       -0.01180267333984375,
       -0.034210205078125,
@@ -61870,12 +61870,12 @@
     ]
   },
   {
-    "name": "pause-fill",
+    "name": "RiPauseFill",
     "description": "Pixel-art interface icon representing pause.",
     "tags": [
       "pause"
     ],
-    "file": "icons/pause-fill.svg",
+    "file": "icons/RiPauseFill.svg",
     "embedding": [
       0.01107025146484375,
       -0.0095977783203125,
@@ -63416,7 +63416,7 @@
     ]
   },
   {
-    "name": "picture-in-picture2",
+    "name": "RiPictureInPicture2Line",
     "description": "Pixel-art interface icon representing picture in picture 2.",
     "tags": [
       "picture",
@@ -63424,7 +63424,7 @@
       "picture",
       "2"
     ],
-    "file": "icons/picture-in-picture2.svg",
+    "file": "icons/RiPictureInPicture2Line.svg",
     "embedding": [
       -0.01352691650390625,
       -0.04010009765625,
@@ -64965,12 +64965,12 @@
     ]
   },
   {
-    "name": "play-fill",
+    "name": "RiPlayFill",
     "description": "Pixel-art interface icon representing play.",
     "tags": [
       "play"
     ],
-    "file": "icons/play-fill.svg",
+    "file": "icons/RiPlayFill.svg",
     "embedding": [
       0.030059814453125,
       -0.017425537109375,
@@ -66511,12 +66511,12 @@
     ]
   },
   {
-    "name": "refresh",
+    "name": "RiRefreshLine",
     "description": "Pixel-art interface icon representing refresh.",
     "tags": [
       "refresh"
     ],
-    "file": "icons/refresh.svg",
+    "file": "icons/RiRefreshLine.svg",
     "embedding": [
       -0.02874755859375,
       0.01861572265625,
@@ -68057,12 +68057,12 @@
     ]
   },
   {
-    "name": "repeat",
+    "name": "RiRepeatLine",
     "description": "Pixel-art interface icon representing repeat.",
     "tags": [
       "repeat"
     ],
-    "file": "icons/repeat.svg",
+    "file": "icons/RiRepeatLine.svg",
     "embedding": [
       0.0148162841796875,
       -0.0009665489196777344,
@@ -69603,12 +69603,12 @@
     ]
   },
   {
-    "name": "restart",
+    "name": "RiRestartLine",
     "description": "Pixel-art interface icon representing restart.",
     "tags": [
       "restart"
     ],
-    "file": "icons/restart.svg",
+    "file": "icons/RiRestartLine.svg",
     "embedding": [
       0.006855010986328125,
       0.0198211669921875,
@@ -71149,12 +71149,12 @@
     ]
   },
   {
-    "name": "search",
+    "name": "RiSearchLine",
     "description": "Pixel-art interface icon representing search.",
     "tags": [
       "search"
     ],
-    "file": "icons/search.svg",
+    "file": "icons/RiSearchLine.svg",
     "embedding": [
       0.0033359527587890625,
       -0.002918243408203125,
@@ -72695,13 +72695,13 @@
     ]
   },
   {
-    "name": "shield-check",
+    "name": "RiShieldCheckLine",
     "description": "Pixel-art interface icon representing shield check.",
     "tags": [
       "shield",
       "check"
     ],
-    "file": "icons/shield-check.svg",
+    "file": "icons/RiShieldCheckLine.svg",
     "embedding": [
       -0.000002384185791015625,
       -0.0005507469177246094,
@@ -74242,12 +74242,12 @@
     ]
   },
   {
-    "name": "shuffle",
+    "name": "RiShuffleLine",
     "description": "Pixel-art interface icon representing shuffle.",
     "tags": [
       "shuffle"
     ],
-    "file": "icons/shuffle.svg",
+    "file": "icons/RiShuffleLine.svg",
     "embedding": [
       -0.01477813720703125,
       -0.03155517578125,
@@ -75788,13 +75788,13 @@
     ]
   },
   {
-    "name": "sidebar-fold",
+    "name": "RiSidebarFoldLine",
     "description": "Pixel-art interface icon representing sidebar fold.",
     "tags": [
       "sidebar",
       "fold"
     ],
-    "file": "icons/sidebar-fold.svg",
+    "file": "icons/RiSidebarFoldLine.svg",
     "embedding": [
       -0.016876220703125,
       -0.01088714599609375,
@@ -77335,13 +77335,13 @@
     ]
   },
   {
-    "name": "skip-back",
+    "name": "RiSkipBackLine",
     "description": "Pixel-art interface icon representing skip back.",
     "tags": [
       "skip",
       "back"
     ],
-    "file": "icons/skip-back.svg",
+    "file": "icons/RiSkipBackLine.svg",
     "embedding": [
       0.013336181640625,
       0.005031585693359375,
@@ -78882,13 +78882,13 @@
     ]
   },
   {
-    "name": "skip-forward",
+    "name": "RiSkipForwardLine",
     "description": "Pixel-art interface icon representing skip forward.",
     "tags": [
       "skip",
       "forward"
     ],
-    "file": "icons/skip-forward.svg",
+    "file": "icons/RiSkipForwardLine.svg",
     "embedding": [
       0.004390716552734375,
       -0.00246429443359375,
@@ -80429,12 +80429,12 @@
     ]
   },
   {
-    "name": "stop",
+    "name": "RiStopLine",
     "description": "Pixel-art interface icon representing stop.",
     "tags": [
       "stop"
     ],
-    "file": "icons/stop.svg",
+    "file": "icons/RiStopLine.svg",
     "embedding": [
       0.00823211669921875,
       -0.00933074951171875,
@@ -81975,13 +81975,13 @@
     ]
   },
   {
-    "name": "volume-down",
+    "name": "RiVolumeDownLine",
     "description": "Pixel-art interface icon representing volume down.",
     "tags": [
       "volume",
       "down"
     ],
-    "file": "icons/volume-down.svg",
+    "file": "icons/RiVolumeDownLine.svg",
     "embedding": [
       0.0120086669921875,
       0.00405120849609375,
@@ -83522,13 +83522,13 @@
     ]
   },
   {
-    "name": "volume-mute",
+    "name": "RiVolumeMuteLine",
     "description": "Pixel-art interface icon representing volume mute.",
     "tags": [
       "volume",
       "mute"
     ],
-    "file": "icons/volume-mute.svg",
+    "file": "icons/RiVolumeMuteLine.svg",
     "embedding": [
       0.0019159317016601562,
       0.01824951171875,
@@ -85069,13 +85069,13 @@
     ]
   },
   {
-    "name": "volume-up",
+    "name": "RiVolumeUpLine",
     "description": "Pixel-art interface icon representing volume up.",
     "tags": [
       "volume",
       "up"
     ],
-    "file": "icons/volume-up.svg",
+    "file": "icons/RiVolumeUpLine.svg",
     "embedding": [
       0.01483917236328125,
       -0.0015316009521484375,
