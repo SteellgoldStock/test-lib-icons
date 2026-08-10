@@ -32,8 +32,7 @@ if(!svg.startsWith("<svg")||!svg.endsWith("</svg>")) throw new Error("Model did 
 if(!/viewBox=["']0 0 24 24["']/.test(svg)) throw new Error('SVG must use viewBox="0 0 24 24".');
 if(/(<text\b|<image\b|<filter\b|<linearGradient\b|<radialGradient\b|<mask\b|<foreignObject\b)/i.test(svg)) throw new Error("Forbidden SVG element.");
 const slug=request.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,64)||"generated-icon";
-const output=path.join(root,"output",`${slug}.svg`);
-await fs.writeFile(output,svg+"\n","utf8");
+const output=path.join(root,"generated",`${slug}.svg`);await fs.mkdir(path.dirname(output),{recursive:true});await fs.writeFile(output,svg+"\n","utf8");
 console.log(`Generated: ${output}`);
 console.log("References:");
 for(const ref of refs) console.log(`- ${ref.name} (${ref.score.toFixed(4)})`);
