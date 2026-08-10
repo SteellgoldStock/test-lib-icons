@@ -31,6 +31,23 @@ const readOption = (
   return undefined;
 };
 
+const limitValue = readOption("--limit");
+const limit = limitValue
+  ? Number(limitValue)
+  : undefined;
+
+if (limit !== undefined) {
+  if (
+    !Number.isInteger(limit) ||
+    limit < 1
+  ) {
+    console.error(
+      "--limit must be an integer greater than 0.",
+    );
+    process.exit(1);
+  }
+}
+
 const gridValue = readOption("--grid");
 const grid = gridValue
   ? Number(gridValue)
@@ -50,6 +67,78 @@ if (
 if (!pixelMode && gridValue) {
   console.warn(
     'Ignoring "--grid" because "--pixel" is not enabled.',
+  );
+}
+
+const rasterThresholdValue = readOption(
+  "--raster-threshold",
+);
+
+const rasterThreshold = rasterThresholdValue
+  ? Number(rasterThresholdValue)
+  : 0.16;
+
+if (
+  !Number.isFinite(rasterThreshold) ||
+  rasterThreshold < 0 ||
+  rasterThreshold > 1
+) {
+  console.error(
+    "--raster-threshold must be a number between 0 and 1.",
+  );
+  process.exit(1);
+}
+
+if (!pixelMode && rasterThresholdValue) {
+  console.warn(
+    'Ignoring "--raster-threshold" because "--pixel" is not enabled.',
+  );
+}
+
+const blockThresholdValue = readOption(
+  "--block-threshold",
+);
+
+const blockThreshold = blockThresholdValue
+  ? Number(blockThresholdValue)
+  : 0.25;
+
+if (
+  !Number.isFinite(blockThreshold) ||
+  blockThreshold < 0 ||
+  blockThreshold > 1
+) {
+  console.error(
+    "--block-threshold must be a number between 0 and 1.",
+  );
+  process.exit(1);
+}
+
+if (!pixelMode && blockThresholdValue) {
+  console.warn(
+    'Ignoring "--block-threshold" because "--pixel" is not enabled.',
+  );
+}
+
+const blockValue = readOption("--block");
+const block = blockValue
+  ? Number(blockValue)
+  : 2;
+
+if (
+  !Number.isInteger(block) ||
+  block < 1 ||
+  block > 8
+) {
+  console.error(
+    "--block must be an integer between 1 and 8.",
+  );
+  process.exit(1);
+}
+
+if (!pixelMode && blockValue) {
+  console.warn(
+    'Ignoring "--block" because "--pixel" is not enabled.',
   );
 }
 
@@ -253,6 +342,174 @@ type PixelRect = {
   height: number;
 };
 
+const countNeighbors = (
+  pixels: PixelMap,
+  x: number,
+  y: number,
+): number => {
+  const height = pixels.length;
+  const width = pixels[0]?.length ?? 0;
+
+  let count = 0;
+
+  for (let dy = -1; dy <= 1; dy += 1) {
+    for (let dx = -1; dx <= 1; dx += 1) {
+      if (dx === 0 && dy === 0) {
+        continue;
+      }
+
+      const nx = x + dx;
+      const ny = y + dy;
+
+      if (
+        nx >= 0 &&
+        nx < width &&
+        ny >= 0 &&
+        ny < height &&
+        pixels[ny][nx]
+      ) {
+        count += 1;
+      }
+    }
+  }
+
+  return count;
+};
+
+const cleanPixelMap = (
+  pixels: PixelMap,
+): PixelMap => {
+  const height = pixels.length;
+  const width = pixels[0]?.length ?? 0;
+
+  const output = pixels.map((row) => [...row]);
+
+  for (let y = 0; y < height; y += 1) {
+    for (let x = 0; x < width; x += 1) {
+      if (pixels[y][x]) {
+        if (
+          countNeighbors(pixels, x, y) === 0
+        ) {
+          output[y][x] = false;
+        }
+
+        continue;
+      }
+
+      const left =
+        x > 0 &&
+        pixels[y][x - 1];
+
+      const right =
+        x + 1 < width &&
+        pixels[y][x + 1];
+
+      const up =
+        y > 0 &&
+        pixels[y - 1][x];
+
+      const down =
+        y + 1 < height &&
+        pixels[y + 1][x];
+
+      if (
+        (left && right) ||
+        (up && down)
+      ) {
+        output[y][x] = true;
+      }
+    }
+  }
+
+  return output;
+};
+
+const snapToBlocks = (
+  pixels: PixelMap,
+  blockSize: number,
+  blockThreshold: number,
+): PixelMap => {
+  if (blockSize <= 1) {
+    return pixels;
+  }
+
+  const height = pixels.length;
+  const width = pixels[0]?.length ?? 0;
+
+  const output: PixelMap = Array.from(
+    { length: height },
+    () => Array<boolean>(width).fill(false),
+  );
+
+  for (
+    let blockY = 0;
+    blockY < height;
+    blockY += blockSize
+  ) {
+    for (
+      let blockX = 0;
+      blockX < width;
+      blockX += blockSize
+    ) {
+      const blockWidth = Math.min(
+        blockSize,
+        width - blockX,
+      );
+
+      const blockHeight = Math.min(
+        blockSize,
+        height - blockY,
+      );
+
+      let activePixels = 0;
+      let totalPixels = 0;
+
+      for (
+        let y = blockY;
+        y < blockY + blockHeight;
+        y += 1
+      ) {
+        for (
+          let x = blockX;
+          x < blockX + blockWidth;
+          x += 1
+        ) {
+          totalPixels += 1;
+
+          if (pixels[y][x]) {
+            activePixels += 1;
+          }
+        }
+      }
+
+      const coverage =
+        totalPixels > 0
+          ? activePixels / totalPixels
+          : 0;
+
+      if (coverage < blockThreshold) {
+        continue;
+      }
+
+      for (
+        let y = blockY;
+        y < blockY + blockHeight;
+        y += 1
+      ) {
+        for (
+          let x = blockX;
+          x < blockX + blockWidth;
+          x += 1
+        ) {
+          output[y][x] = true;
+        }
+      }
+    }
+  }
+
+  return output;
+};
+
 const vectorizePixelMap = (
   pixels: PixelMap,
 ): PixelRect[] => {
@@ -342,6 +599,9 @@ const vectorizePixelMap = (
 const pixelizeSvg = async (
   svg: string,
   targetGrid: number,
+  blockSize: number,
+  rasterThreshold: number,
+  blockThreshold: number,
 ): Promise<string> => {
   const {
     Resvg,
@@ -389,8 +649,6 @@ const pixelizeSvg = async (
   // Coverage threshold:
   // low enough to preserve thin Lucide strokes,
   // high enough to avoid most anti-aliasing fuzz.
-  const threshold = 0.16;
-
   for (
     let gridY = 0;
     gridY < targetGrid;
@@ -443,12 +701,22 @@ const pixelizeSvg = async (
           : 0;
 
       pixels[gridY][gridX] =
-        coverage >= threshold;
+        coverage >= rasterThreshold;
     }
   }
 
+  const cleanedPixels =
+    cleanPixelMap(pixels);
+
+  const snappedPixels =
+    snapToBlocks(
+      cleanedPixels,
+      blockSize,
+      blockThreshold,
+    );
+
   const rectangles =
-    vectorizePixelMap(pixels);
+    vectorizePixelMap(snappedPixels);
 
   const body = rectangles
     .map(
@@ -486,6 +754,10 @@ const convertIcons =
         a.localeCompare(b),
       );
 
+    const targetFiles = limit
+      ? files.slice(0, limit)
+      : files;
+
     if (files.length === 0) {
       throw new Error(
         `No SVG files found in ${sourceDir}`,
@@ -493,8 +765,16 @@ const convertIcons =
     }
 
     let converted = 0;
+    const totalToConvert = targetFiles.length;
+    const wasLimitApplied = limit !== undefined;
 
-    for (const file of files) {
+    if (wasLimitApplied) {
+      console.log(
+        `Limit enabled: generating ${totalToConvert}/${files.length} icons.`,
+      );
+    }
+
+    for (const file of targetFiles) {
       const sourcePath = path.join(
         sourceDir,
         file,
@@ -514,6 +794,9 @@ const convertIcons =
         ? await pixelizeSvg(
             svg,
             grid,
+            block,
+            rasterThreshold,
+            blockThreshold,
           )
         : removeRoundness(svg);
 
@@ -527,10 +810,10 @@ const convertIcons =
 
       if (
         converted % 100 === 0 ||
-        converted === files.length
+        converted === totalToConvert
       ) {
         console.log(
-          `Converted ${converted}/${files.length}`,
+          `Converted ${converted}/${totalToConvert}`,
         );
       }
     }
@@ -541,7 +824,7 @@ const convertIcons =
   const main = async (): Promise<void> => {
   console.log(
     pixelMode
-      ? `Building pixelized Lucide icon set (${grid}x${grid})...`
+      ? `Building pixelized Lucide icon set (${grid}x${grid}, block ${block}, raster threshold ${rasterThreshold}, block threshold ${blockThreshold})...`
       : "Building squared Lucide icon set...",
   );
 
@@ -565,7 +848,7 @@ const convertIcons =
   console.log(
     `Mode: ${
       pixelMode
-        ? `pixel (${grid}x${grid})`
+        ? `pixel (${grid}x${grid}, block ${block}, raster threshold ${rasterThreshold}, block threshold ${blockThreshold})`
         : "square"
     }`,
   );

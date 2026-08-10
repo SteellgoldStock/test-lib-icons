@@ -30,6 +30,7 @@ export const generatePreview = async (
 
   const outputFile = path.join(
     path.dirname(inputDir),
+    "..",
     "preview.html",
   );
 
