@@ -8,7 +8,8 @@
     "generate": "tsx scripts/generate.ts",
     "preview": "tsx scripts/preview.ts",
     "index": "tsx scripts/build-index.ts",
-    "rename": "tsx scripts/rename-icons.ts"
+    "rename": "tsx scripts/rename-icons.ts",
+    "lucide:build": "tsx scripts/build-lucide.ts"
   },
   "dependencies": {"dotenv": "^16.4.7", "openai": "^5.0.0"},
   "devDependencies": {"@types/node": "^22.10.2", "tsx": "^4.19.2", "typescript": "^5.7.2"},
