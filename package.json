@@ -1,0 +1,13 @@
+{
+  "name": "pixel-icon-ai",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "embed": "tsx scripts/embed.ts",
+    "icon:search": "tsx scripts/search.ts",
+    "generate": "tsx scripts/generate.ts"
+  },
+  "dependencies": {"dotenv": "^16.4.7", "openai": "^5.0.0"},
+  "devDependencies": {"@types/node": "^22.10.2", "tsx": "^4.19.2", "typescript": "^5.7.2"},
+  "packageManager": "pnpm@10.0.0"
+}
