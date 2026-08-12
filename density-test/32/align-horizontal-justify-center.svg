@@ -1,0 +1,20 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="32"
+  height="32"
+  viewBox="0 0 32 32"
+  fill="currentColor"
+  shape-rendering="crispEdges"
+>
+  <rect x="15" y="1" width="2" height="30" />
+  <rect x="14" y="2" width="1" height="28" />
+  <rect x="17" y="2" width="1" height="28" />
+  <rect x="1" y="5" width="11" height="3" />
+  <rect x="1" y="8" width="3" height="19" />
+  <rect x="9" y="8" width="3" height="19" />
+  <rect x="20" y="8" width="11" height="3" />
+  <rect x="20" y="11" width="3" height="13" />
+  <rect x="28" y="11" width="3" height="13" />
+  <rect x="23" y="21" width="5" height="3" />
+  <rect x="4" y="24" width="5" height="3" />
+</svg>

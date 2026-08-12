@@ -9,7 +9,8 @@
     "preview": "tsx scripts/preview.ts",
     "index": "tsx scripts/build-index.ts",
     "rename": "tsx scripts/rename-icons.ts",
-    "lucide:build": "tsx scripts/build-lucide.ts"
+    "lucide:build": "tsx scripts/build-lucide.ts",
+    "test:lucide-fill-regression": "tsx --test scripts/lucide-fill-regression.test.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.7",

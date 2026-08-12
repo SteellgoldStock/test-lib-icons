@@ -1,0 +1,19 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="20"
+  height="20"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  shape-rendering="crispEdges"
+>
+  <rect x="6" y="1" width="3" height="8" />
+  <rect x="5" y="4" width="1" height="6" />
+  <rect x="9" y="4" width="1" height="8" />
+  <rect x="4" y="8" width="1" height="3" />
+  <rect x="10" y="8" width="1" height="8" />
+  <rect x="1" y="9" width="3" height="2" />
+  <rect x="15" y="9" width="4" height="2" />
+  <rect x="14" y="10" width="1" height="6" />
+  <rect x="11" y="11" width="3" height="8" />
+  <rect x="15" y="11" width="1" height="1" />
+</svg>

@@ -25,13 +25,15 @@ const escapeHtml = (value: string): string =>
 
 export const generatePreview = async (
   inputPath?: string,
+  outputName = "preview.html",
+  sourceLabel?: string,
 ): Promise<void> => {
   const inputDir = resolveInputDir(inputPath);
 
   const outputFile = path.join(
     path.dirname(inputDir),
     "..",
-    "preview.html",
+    outputName,
   );
 
   await fs.mkdir(inputDir, {
@@ -64,7 +66,9 @@ export const generatePreview = async (
     }),
   );
 
-  const sourceName = escapeHtml(path.basename(inputDir));
+  const sourceName = escapeHtml(
+    sourceLabel ?? path.basename(inputDir),
+  );
 
   const html = `<!doctype html>
 <html lang="en">
@@ -74,7 +78,7 @@ export const generatePreview = async (
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   />
-  <title>Pixel Icon Preview</title>
+    <title>Pixel Icon Preview ${sourceLabel ? `(${sourceLabel})` : ""}</title>
 
   <style>
     * {
@@ -155,6 +159,10 @@ export const generatePreview = async (
     select {
       padding: 0 10px;
       cursor: pointer;
+    }
+
+    .fill-mode {
+      min-width: 118px;
     }
 
     .count {
@@ -265,6 +273,11 @@ export const generatePreview = async (
               <option value="32" selected>32px</option>
               <option value="48">48px</option>
             </select>
+
+            <select id="fillMode" class="fill-mode" aria-label="Fill mode">
+              <option value="outline" selected>Outline</option>
+              <option value="filled">Filled</option>
+            </select>
           </div>
         `
         : ""
@@ -292,10 +305,46 @@ export const generatePreview = async (
   <script>
     const search = document.querySelector("#search");
     const size = document.querySelector("#size");
+    const fillMode = document.querySelector("#fillMode");
     const count = document.querySelector("#count");
     const cards = Array.from(
       document.querySelectorAll("figure[data-icon-name]"),
     );
+    const iconSvgs: Array<{ svg: SVGElement; defaultFill: string | null }> =
+      [];
+
+    for (const card of cards) {
+      const svg = card.querySelector("svg");
+
+      if (!(svg instanceof SVGElement)) {
+        continue;
+      }
+
+      iconSvgs.push({
+        svg,
+        defaultFill: svg.getAttribute("fill"),
+      });
+    }
+
+    const applyFillMode = () => {
+      const isFilled = fillMode?.value === "filled";
+
+      for (const icon of iconSvgs) {
+        if (icon.defaultFill === null) {
+          if (isFilled) {
+            icon.svg.setAttribute("fill", "currentColor");
+          } else {
+            icon.svg.removeAttribute("fill");
+          }
+          continue;
+        }
+
+        icon.svg.setAttribute(
+          "fill",
+          isFilled ? "currentColor" : icon.defaultFill,
+        );
+      }
+    };
 
     const updateSearch = () => {
       const query = (search?.value ?? "")
@@ -334,6 +383,9 @@ export const generatePreview = async (
         );
       },
     );
+
+    fillMode?.addEventListener("change", applyFillMode);
+    applyFillMode();
   </script>
 </body>
 </html>`;

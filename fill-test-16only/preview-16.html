@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+    <title>Pixel Icon Preview (16x16 · vector-square)</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      color-scheme: dark;
+      --icon-size: 32px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 24px;
+      background: rgba(10, 10, 10, 0.94);
+      border-bottom: 1px solid #242424;
+      backdrop-filter: blur(12px);
+    }
+
+    .title {
+      min-width: max-content;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .source {
+      margin-top: 3px;
+      color: #666;
+      font-size: 11px;
+    }
+
+    .controls {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      gap: 10px;
+      max-width: 680px;
+      margin-left: auto;
+    }
+
+    input,
+    select {
+      height: 36px;
+      color: #fff;
+      background: #111;
+      border: 1px solid #2b2b2b;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #555;
+    }
+
+    input {
+      flex: 1;
+      min-width: 140px;
+      padding: 0 12px;
+    }
+
+    select {
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    .fill-mode {
+      min-width: 118px;
+    }
+
+    .count {
+      min-width: max-content;
+      color: #777;
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      padding: 24px;
+    }
+
+    figure {
+      overflow: hidden;
+      margin: 0;
+      background: #111;
+      border: 1px solid #242424;
+      border-radius: 8px;
+    }
+
+    figure[hidden] {
+      display: none;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 120px;
+      color: #fff;
+      background: #080808;
+    }
+
+    .icon svg {
+      width: var(--icon-size);
+      height: var(--icon-size);
+      image-rendering: pixelated;
+    }
+
+    figcaption {
+      overflow: hidden;
+      padding: 10px 12px;
+      color: #aaa;
+      border-top: 1px solid #242424;
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+      font-size: 12px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .empty {
+      padding: 80px 24px;
+      color: #666;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .controls {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+      }
+
+      .count {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="title">
+      <h1>Pixel Icon Preview</h1>
+      <div class="source">16x16 · vector-square</div>
+    </div>
+
+    
+          <div class="controls">
+            <input
+              id="search"
+              type="search"
+              placeholder="Search icons..."
+              autocomplete="off"
+            />
+
+            <select id="size" aria-label="Icon size">
+              <option value="16">16px</option>
+              <option value="24">24px</option>
+              <option value="32" selected>32px</option>
+              <option value="48">48px</option>
+            </select>
+
+            <select id="fillMode" class="fill-mode" aria-label="Fill mode">
+              <option value="outline" selected>Outline</option>
+              <option value="filled">Filled</option>
+            </select>
+          </div>
+        
+
+    <span class="count" id="count">
+      9 icons
+    </span>
+  </header>
+
+  
+        <main class="grid">
+          <figure data-icon-name="arrow-left">
+          <div class="icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="square"
+  stroke-linejoin="miter"
+>
+  <path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" />
+</svg>
+</div>
+          <figcaption title="arrow-left.svg">arrow-left</figcaption>
+        </figure>
+<figure data-icon-name="badge">
+          <div class="icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="square"
+  stroke-linejoin="miter"
+>
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+</svg>
+</div>
+          <figcaption title="badge.svg">badge</figcaption>
+        </figure>
+<figure data-icon-name="bookmark">
+          <div class="icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="square"
+  stroke-linejoin="miter"
+>
+  <path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z" />
+</svg>
+</div>
+          <figcaption title="bookmark.svg">bookmark</figcaption>
+        </figure>
+<figure data-icon-name="chevron-right">
+          <div class="icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="square"
+  stroke-linejoin="miter"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</div>
+          <figcaption title="chevron-right.svg">chevron-right</figcaption>
+        </figure>
+<figure data-icon-name="circle">
+          <div class="icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="square"
+  stroke-linejoin="miter"
+>
+  <circle cx="12" cy="12" r="10" />
+</svg>
+</div>
+          <figcaption title="circle.svg">circle</figcaption>
+        </figure>
+<figure data-icon-name="heart">
+          <div class="icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="square"
+  stroke-linejoin="miter"
+>
+  <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" />
+</svg>
+</div>
+          <figcaption title="heart.svg">heart</figcaption>
+        </figure>
+<figure data-icon-name="menu">
+          <div class="icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="square"
+  stroke-linejoin="miter"
+>
+  <path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" />
+</svg>
+</div>
+          <figcaption title="menu.svg">menu</figcaption>
+        </figure>
+<figure data-icon-name="shield">
+          <div class="icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="square"
+  stroke-linejoin="miter"
+>
+  <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+</svg>
+</div>
+          <figcaption title="shield.svg">shield</figcaption>
+        </figure>
+<figure data-icon-name="star">
+          <div class="icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="square"
+  stroke-linejoin="miter"
+>
+  <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
+</svg>
+</div>
+          <figcaption title="star.svg">star</figcaption>
+        </figure>
+        </main>
+      
+
+  <script>
+    const search = document.querySelector("#search");
+    const size = document.querySelector("#size");
+    const fillMode = document.querySelector("#fillMode");
+    const count = document.querySelector("#count");
+    const cards = Array.from(
+      document.querySelectorAll("figure[data-icon-name]"),
+    );
+    const iconSvgs: Array<{ svg: SVGElement; defaultFill: string | null }> =
+      [];
+
+    for (const card of cards) {
+      const svg = card.querySelector("svg");
+
+      if (!(svg instanceof SVGElement)) {
+        continue;
+      }
+
+      iconSvgs.push({
+        svg,
+        defaultFill: svg.getAttribute("fill"),
+      });
+    }
+
+    const applyFillMode = () => {
+      const isFilled = fillMode?.value === "filled";
+
+      for (const icon of iconSvgs) {
+        if (icon.defaultFill === null) {
+          if (isFilled) {
+            icon.svg.setAttribute("fill", "currentColor");
+          } else {
+            icon.svg.removeAttribute("fill");
+          }
+          continue;
+        }
+
+        icon.svg.setAttribute(
+          "fill",
+          isFilled ? "currentColor" : icon.defaultFill,
+        );
+      }
+    };
+
+    const updateSearch = () => {
+      const query = (search?.value ?? "")
+        .trim()
+        .toLowerCase();
+
+      let visible = 0;
+
+      for (const card of cards) {
+        const name = card.dataset.iconName ?? "";
+        const matches = name.includes(query);
+
+        card.hidden = !matches;
+
+        if (matches) {
+          visible += 1;
+        }
+      }
+
+      if (count) {
+        count.textContent =
+          query.length > 0
+            ? `${visible} / ${cards.length} icons`
+            : `${cards.length} icon${cards.length === 1 ? "" : "s"}`;
+      }
+    };
+
+    search?.addEventListener("input", updateSearch);
+
+    size?.addEventListener(
+      "change",
+      () => {
+        document.documentElement.style.setProperty(
+          "--icon-size",
+          `${size.value}px`,
+        );
+      },
+    );
+
+    fillMode?.addEventListener("change", applyFillMode);
+    applyFillMode();
+  </script>
+</body>
+</html>

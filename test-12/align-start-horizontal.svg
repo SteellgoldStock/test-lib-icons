@@ -1,0 +1,12 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="12"
+  height="12"
+  viewBox="0 0 12 12"
+  fill="currentColor"
+  shape-rendering="crispEdges"
+>
+  <rect x="1" y="0" width="10" height="8" />
+  <rect x="1" y="8" width="5" height="3" />
+  <rect x="2" y="11" width="3" height="1" />
+</svg>
