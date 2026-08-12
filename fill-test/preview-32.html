@@ -93,6 +93,77 @@
       min-width: 118px;
     }
 
+    .fill-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #8f8f8f;
+      font-size: 12px;
+      user-select: none;
+    }
+
+    .fill-switch input {
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+      width: 44px;
+      height: 22px;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .switch-control {
+      --track-width: 44px;
+      --track-height: 22px;
+      --thumb-size: 16px;
+      display: inline-block;
+      position: relative;
+      width: var(--track-width);
+      height: var(--track-height);
+      border-radius: 999px;
+      background: #252525;
+      border: 1px solid #3c3c3c;
+      cursor: pointer;
+    }
+
+    .switch-control::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      width: var(--thumb-size);
+      height: var(--thumb-size);
+      border-radius: 50%;
+      background: #8c8c8c;
+      transition: transform 0.2s ease;
+    }
+
+    .fill-toggle:checked + .switch-control {
+      background: #2b5fff;
+      border-color: #5c7dff;
+    }
+
+    .fill-toggle:checked + .switch-control::before {
+      transform: translateX(20px);
+      background: #f2f4ff;
+    }
+
+    .switch-control:focus-visible {
+      border-color: #7a7a7a;
+    }
+
+    .fill-state {
+      min-width: 24px;
+      color: #afafaf;
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+    }
+
     .count {
       min-width: max-content;
       color: #777;
@@ -200,10 +271,17 @@
               <option value="48">48px</option>
             </select>
 
-            <select id="fillMode" class="fill-mode" aria-label="Fill mode">
-              <option value="outline" selected>Outline</option>
-              <option value="filled">Filled</option>
-            </select>
+            <label class="fill-switch">
+              <span>Fill</span>
+              <input
+                id="fillToggle"
+                class="fill-toggle"
+                type="checkbox"
+                aria-label="Toggle fill mode"
+              />
+              <span class="switch-control" aria-hidden="true"></span>
+              <span class="fill-state" id="fillState">OFF</span>
+            </label>
           </div>
         
 
@@ -641,7 +719,10 @@
   <script>
     const search = document.querySelector("#search");
     const size = document.querySelector("#size");
-    const fillMode = document.querySelector("#fillMode");
+    const fillToggle = document.querySelector(
+      "#fillToggle",
+    );
+    const fillState = document.querySelector("#fillState");
     const count = document.querySelector("#count");
     const cards = Array.from(
       document.querySelectorAll("figure[data-icon-name]"),
@@ -663,7 +744,10 @@
     }
 
     const applyFillMode = () => {
-      const isFilled = fillMode?.value === "filled";
+      const isFilled =
+        fillToggle instanceof HTMLInputElement
+          ? fillToggle.checked
+          : false;
 
       for (const icon of iconSvgs) {
         if (icon.defaultFill === null) {
@@ -720,7 +804,10 @@
       },
     );
 
-    fillMode?.addEventListener("change", applyFillMode);
+    fillToggle?.addEventListener("change", applyFillMode);
+    if (fillState) {
+      fillState.textContent = "OFF";
+    }
     applyFillMode();
   </script>
 </body>

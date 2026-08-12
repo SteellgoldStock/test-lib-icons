@@ -2859,11 +2859,15 @@ const convertIcons =
           densitySourceDir,
           `preview-${density}.html`,
           `${density}x${density} · ${densityModeLabel}`,
+          outputRoot,
         );
       }
     } else {
       await generatePreview(
         inPlace ? sourceDir : outputRoot,
+        "preview.html",
+        undefined,
+        outputRoot,
       );
     }
 
